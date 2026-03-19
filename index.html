@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overfit &amp; Chill</title>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #141420;
+            color: #e8e8f0;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        /* === Language toggle === */
+        .lang-toggle {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            background: #2a2a44;
+            border: 1px solid #4a4a70;
+            border-radius: 20px;
+            padding: 6px 14px;
+            cursor: pointer;
+            font-size: 13px;
+            font-family: sans-serif;
+            color: #a0a0d0;
+            z-index: 100;
+            transition: background 0.2s;
+        }
+        .lang-toggle:hover { background: #363658; }
+
+        /* === Hero === */
+        .hero {
+            padding: 90px 0 56px;
+        }
+
+        .hero-label {
+            font-size: 12px;
+            font-family: sans-serif;
+            color: #444;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.15;
+            margin-bottom: 32px;
+        }
+
+        .hero h1 span {
+            color: #5a5aaa;
+        }
+
+        /* === Course description === */
+        .course-desc {
+            padding-bottom: 60px;
+            border-bottom: 1px solid #1e1e30;
+        }
+
+        .course-desc p {
+            color: #999;
+            font-size: 17px;
+            margin-bottom: 18px;
+            line-height: 1.85;
+        }
+
+        .course-desc p:last-child {
+            margin-bottom: 0;
+        }
+
+        .course-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 28px;
+        }
+
+        .meta-pill {
+            background: #1c1c2e;
+            border: 1px solid #2a2a40;
+            border-radius: 20px;
+            padding: 5px 14px;
+            font-size: 12px;
+            font-family: sans-serif;
+            color: #5a5a80;
+            letter-spacing: 0.3px;
+        }
+
+        /* === Class list === */
+        .classes {
+            padding: 48px 0 80px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-family: sans-serif;
+            color: #333;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        /* === Accordion (details/summary) === */
+        details {
+            border: 1px solid #2a2a40;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            background: #1a1a2a;
+            overflow: hidden;
+        }
+
+        details[open] {
+            border-color: #3a3a58;
+        }
+
+        summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 22px 28px;
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            user-select: none;
+            transition: background 0.15s;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary:hover { background: #1e1e30; }
+
+        .class-num {
+            font-size: 11px;
+            font-family: sans-serif;
+            color: #333;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            flex-shrink: 0;
+            padding-top: 3px;
+        }
+
+        .class-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #c8c8e0;
+            flex: 1;
+        }
+
+        details[open] .class-title { color: #fff; }
+
+        .class-arrow {
+            font-size: 12px;
+            color: #333;
+            flex-shrink: 0;
+            transition: transform 0.2s;
+            font-family: sans-serif;
+        }
+        details[open] .class-arrow { transform: rotate(90deg); color: #5a5a80; }
+
+        .class-theme {
+            font-size: 14px;
+            color: #444;
+            font-family: sans-serif;
+            font-style: italic;
+            flex-shrink: 0;
+            max-width: 260px;
+            text-align: right;
+            line-height: 1.4;
+        }
+
+        /* === Class body === */
+        .class-body {
+            padding: 0 28px 28px;
+            border-top: 1px solid #222234;
+        }
+
+        .class-theme-full {
+            font-size: 15px;
+            color: #555;
+            font-family: sans-serif;
+            font-style: italic;
+            padding: 20px 0 24px;
+            border-bottom: 1px solid #1e1e2e;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        /* === Module cards === */
+        .modules {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .module-card {
+            background: #141420;
+            border: 1px solid #222234;
+            border-radius: 10px;
+            padding: 22px 24px 20px;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: border-color 0.15s, background 0.15s;
+        }
+        a.module-card:hover {
+            border-color: #3a3a58;
+            background: #181828;
+            text-decoration: none;
+        }
+
+        .module-card.inclass {
+            opacity: 0.55;
+            cursor: default;
+        }
+
+        .module-top {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .activity-badge {
+            font-size: 11px;
+            font-family: sans-serif;
+            font-weight: bold;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+        .badge-mini    { background: #131d2e; border: 1px solid #2a4070; color: #5080c0; }
+        .badge-inter   { background: #1e1a0c; border: 1px solid #604010; color: #a06020; }
+        .badge-discuss { background: #1a1a2e; border: 1px solid #3a3a70; color: #6060a0; }
+
+        .module-name {
+            font-size: 17px;
+            font-weight: 700;
+            color: #ddd;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .module-desc {
+            font-size: 14px;
+            color: #555;
+            font-family: sans-serif;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .module-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag {
+            background: #1c1c2e;
+            color: #444464;
+            border: 1px solid #222236;
+            border-radius: 20px;
+            padding: 3px 10px;
+            font-size: 11px;
+            font-family: sans-serif;
+        }
+
+        .inclass-label {
+            font-size: 12px;
+            font-family: sans-serif;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        /* === Homework === */
+        .homework {
+            margin-top: 28px;
+            padding: 18px 20px;
+            background: #12121e;
+            border: 1px solid #1e1e2e;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: sans-serif;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .homework strong {
+            color: #666;
+            font-weight: bold;
+        }
+
+        /* === Placeholder classes === */
+        .placeholder summary {
+            opacity: 0.35;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        /* === Footer === */
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            color: #2a2a3a;
+            font-size: 13px;
+            font-family: sans-serif;
+        }
+        footer a { color: #333; }
+        footer a:hover { color: #666; }
+
+        a { color: #80b4f0; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .hero h1       { font-size: 38px; }
+            .class-theme   { display: none; }
+            summary        { padding: 18px 20px; gap: 12px; }
+            .class-body    { padding: 0 20px 24px; }
+            .module-card   { padding: 18px 18px 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<button class="lang-toggle" onclick="toggleLang()">DE</button>
+
+<div class="container">
+
+    <div class="hero">
+        <div class="hero-label" data-i18n="hero.label">AI Foundations Course</div>
+        <h1>Overfit &amp; <span>Chill</span></h1>
+    </div>
+
+    <div class="course-desc">
+        <p data-i18n="desc.p1">Twelve classes. No formulas on the first day. The math arrives when you already need it.</p>
+        <p data-i18n="desc.p2">This course is for people who work with data, commission data products, or manage teams that build them. You will not leave knowing how to train the next language model. You will leave knowing what questions to ask when someone shows you one.</p>
+        <p data-i18n="desc.p3">Business informatics and e-commerce backgrounds. Every topic has a direct track and an optional deep dive for the curious. The tags tell you how long something takes and how much code is involved.</p>
+        <div class="course-meta">
+            <span class="meta-pill" data-i18n="meta.classes">12 classes</span>
+            <span class="meta-pill" data-i18n="meta.hours">3 h each</span>
+            <span class="meta-pill" data-i18n="meta.hw">+ homework</span>
+            <span class="meta-pill" data-i18n="meta.lang">EN / DE</span>
+        </div>
+    </div>
+
+    <div class="classes">
+        <div class="section-label" data-i18n="classes.label">Classes</div>
+
+        <!-- ── Class 1 ── -->
+        <details open>
+            <summary>
+                <span class="class-num">01</span>
+                <span class="class-title" data-i18n="c1.title">What Is Intelligence? What Is Knowledge?</span>
+                <span class="class-theme" data-i18n="c1.theme">Before any algorithm, two questions.</span>
+                <span class="class-arrow">›</span>
+            </summary>
+            <div class="class-body">
+                <div class="class-theme-full" data-i18n="c1.theme.full">Before any algorithm, two questions. What are we trying to build? And how do we know if we know anything?</div>
+
+                <div class="modules">
+
+                    <a class="module-card" href="https://i-yam.github.io/can_machines_think/" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
+                            <span class="tag">~20 min</span>
+                            <span class="tag">no-code</span>
+                            <span class="tag">try-without-ai</span>
+                        </div>
+                        <div class="module-name" data-i18n="c1.m1.name">Can Machines Think?</div>
+                        <div class="module-desc" data-i18n="c1.m1.desc">Turing asked this in 1950. The question is still open. ML taxonomy, weak vs strong AI, and an analogy game that forces you to take a position before the theory arrives.</div>
+                    </a>
+
+                    <a class="module-card" href="https://i-yam.github.io/spiders_and_legs/" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
+                            <span class="tag">no-code</span>
+                            <span class="tag">try-without-ai</span>
+                            <span class="tag">statistics</span>
+                        </div>
+                        <div class="module-name" data-i18n="c1.m2.name">Empiricism and the Logic of Science</div>
+                        <div class="module-desc" data-i18n="c1.m2.desc">Sextus Empiricus, Karl Popper, and the question of what counts as knowledge. If it cannot be falsified, it is not science. This is the epistemological frame the rest of the course runs on.</div>
+                    </a>
+
+                    <div class="module-card inclass">
+                        <div class="module-top">
+                            <span class="activity-badge badge-discuss" data-i18n="badge.discuss">group discussion</span>
+                            <span class="tag">~30 min</span>
+                            <span class="tag">no-code</span>
+                            <span class="tag">try-without-ai</span>
+                        </div>
+                        <div class="module-name" data-i18n="c1.m3.name">What Is Intelligence?</div>
+                        <div class="module-desc" data-i18n="c1.m3.desc">Small groups produce definitions, merge, and critique each other. The class collects a capability list on the board, then sorts each item: weak AI, strong AI, or neither.</div>
+                        <div class="inclass-label" data-i18n="inclass.label">In-class activity — no link</div>
+                    </div>
+
+                    <a class="module-card" href="https://i-yam.github.io/is_ai/" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-inter" data-i18n="badge.inter">intermediate</span>
+                            <span class="tag">~10 min</span>
+                            <span class="tag">no-code</span>
+                            <span class="tag">try-without-ai</span>
+                        </div>
+                        <div class="module-name" data-i18n="c1.m4.name">Is This AI?</div>
+                        <div class="module-desc" data-i18n="c1.m4.desc">Calculator, spam filter, GPS, Face ID. Vote on each one. The answer is not always obvious, and that is the point.</div>
+                    </a>
+
+                </div>
+
+                <div class="homework">
+                    <strong data-i18n="hw.label">Homework:</strong>
+                    <span data-i18n="c1.hw"> Find one dubious AI claim in the media, advertising, or a news headline. Bring it to Class 2 with your diagnosis.</span>
+                </div>
+            </div>
+        </details>
+
+        <!-- ── Classes 2–12 placeholder ── -->
+        <details class="placeholder">
+            <summary>
+                <span class="class-num">02</span>
+                <span class="class-title" data-i18n="c2.title">How Machines Learn</span>
+                <span class="class-theme" data-i18n="c2.theme">From human knowledge to machine knowledge.</span>
+                <span class="class-arrow">›</span>
+            </summary>
+        </details>
+
+        <details class="placeholder">
+            <summary>
+                <span class="class-num">03</span>
+                <span class="class-title" data-i18n="c3.title">Linear Regression + First Encounter with Lies in Data</span>
+                <span class="class-theme" data-i18n="c3.theme">The simplest useful model.</span>
+                <span class="class-arrow">›</span>
+            </summary>
+        </details>
+
+        <details class="placeholder">
+            <summary>
+                <span class="class-num">04</span>
+                <span class="class-title" data-i18n="c4.title">Regularization &amp; Feature Engineering</span>
+                <span class="class-theme" data-i18n="c4.theme">When the model fits too well.</span>
+                <span class="class-arrow">›</span>
+            </summary>
+        </details>
+
+        <details class="placeholder">
+            <summary>
+                <span class="class-num">05</span>
+                <span class="class-title" data-i18n="c5.title">Classification Fundamentals</span>
+                <span class="class-theme" data-i18n="c5.theme">When the answer is a category, not a number.</span>
+                <span class="class-arrow">›</span>
+            </summary>
+        </details>
+
+        <details class="placeholder">
+            <summary>
+                <span class="class-num">06</span>
+                <span class="class-title" data-i18n="c6.title">Local Models &amp; Geometry</span>
+                <span class="class-theme" data-i18n="c6.theme">Not every question has one global answer.</span>
+                <span class="class-arrow">›</span>
+            </summary>
+        </details>
+
+        <details class="placeholder">
+            <summary>
+                <span class="class-num">07</span>
+                <span class="class-title" data-i18n="c7.title">Decision Trees</span>
+                <span class="class-theme" data-i18n="c7.theme">A model you can draw on a whiteboard.</span>
+                <span class="class-arrow">›</span>
+            </summary>
+        </details>
+
+        <details class="placeholder">
+            <summary>
+                <span class="class-num">08</span>
+                <span class="class-title" data-i18n="c8.title">Ensembles</span>
+                <span class="class-theme" data-i18n="c8.theme">One tree overfits. A thousand trees generalize.</span>
+                <span class="class-arrow">›</span>
+            </summary>
+        </details>
+
+        <details class="placeholder">
+            <summary>
+                <span class="class-num">09</span>
+                <span class="class-title" data-i18n="c9.title">Validation &amp; Model Selection</span>
+                <span class="class-theme" data-i18n="c9.theme">You built a model. Now prove it works.</span>
+                <span class="class-arrow">›</span>
+            </summary>
+        </details>
+
+        <details class="placeholder">
+            <summary>
+                <span class="class-num">10</span>
+                <span class="class-title" data-i18n="c10.title">Recommendations &amp; Neural Networks</span>
+                <span class="class-theme" data-i18n="c10.theme">How machines learn what you want.</span>
+                <span class="class-arrow">›</span>
+            </summary>
+        </details>
+
+        <details class="placeholder">
+            <summary>
+                <span class="class-num">11</span>
+                <span class="class-title" data-i18n="c11.title">LLMs &amp; Generative AI</span>
+                <span class="class-theme" data-i18n="c11.theme">What changed.</span>
+                <span class="class-arrow">›</span>
+            </summary>
+        </details>
+
+        <details class="placeholder">
+            <summary>
+                <span class="class-num">12</span>
+                <span class="class-title" data-i18n="c12.title">AI in Practice — Bias, Society, Synthesis</span>
+                <span class="class-theme" data-i18n="c12.theme">What happens when the model meets the real world.</span>
+                <span class="class-arrow">›</span>
+            </summary>
+        </details>
+
+    </div>
+
+</div>
+
+<footer>
+    <a href="https://github.com/i-yam/overfit-and-chill" target="_blank">github.com/i-yam/overfit-and-chill</a>
+</footer>
+
+<script>
+
+const T = {
+    en: {
+        'hero.label':     'AI Foundations Course',
+        'desc.p1':        'Twelve classes. No formulas on the first day. The math arrives when you already need it.',
+        'desc.p2':        'This course is for people who work with data, commission data products, or manage teams that build them. You will not leave knowing how to train the next language model. You will leave knowing what questions to ask when someone shows you one.',
+        'desc.p3':        'Business informatics and e-commerce backgrounds. Every topic has a direct track and an optional deep dive for the curious. The tags tell you how long something takes and how much code is involved.',
+        'meta.classes':   '12 classes',
+        'meta.hours':     '3 h each',
+        'meta.hw':        '+ homework',
+        'meta.lang':      'EN / DE',
+        'classes.label':  'Classes',
+        'badge.mini':     'mini-module',
+        'badge.inter':    'intermediate',
+        'badge.discuss':  'group discussion',
+        'inclass.label':  'In-class activity — no link',
+        'hw.label':       'Homework:',
+        'c1.title':       'What Is Intelligence? What Is Knowledge?',
+        'c1.theme':       'Before any algorithm, two questions.',
+        'c1.theme.full':  'Before any algorithm, two questions. What are we trying to build? And how do we know if we know anything?',
+        'c1.m1.name':     'Can Machines Think?',
+        'c1.m1.desc':     'Turing asked this in 1950. The question is still open. ML taxonomy, weak vs strong AI, and an analogy game that forces you to take a position before the theory arrives.',
+        'c1.m2.name':     'Empiricism and the Logic of Science',
+        'c1.m2.desc':     'Sextus Empiricus, Karl Popper, and the question of what counts as knowledge. If it cannot be falsified, it is not science. This is the epistemological frame the rest of the course runs on.',
+        'c1.m3.name':     'What Is Intelligence?',
+        'c1.m3.desc':     'Small groups produce definitions, merge, and critique each other. The class collects a capability list on the board, then sorts each item: weak AI, strong AI, or neither.',
+        'c1.m4.name':     'Is This AI?',
+        'c1.m4.desc':     'Calculator, spam filter, GPS, Face ID. Vote on each one. The answer is not always obvious, and that is the point.',
+        'c1.hw':          ' Find one dubious AI claim in the media, advertising, or a news headline. Bring it to Class 2 with your diagnosis.',
+        'c2.title':       'How Machines Learn',
+        'c2.theme':       'From human knowledge to machine knowledge.',
+        'c3.title':       'Linear Regression + First Encounter with Lies in Data',
+        'c3.theme':       'The simplest useful model.',
+        'c4.title':       'Regularization & Feature Engineering',
+        'c4.theme':       'When the model fits too well.',
+        'c5.title':       'Classification Fundamentals',
+        'c5.theme':       'When the answer is a category, not a number.',
+        'c6.title':       'Local Models & Geometry',
+        'c6.theme':       'Not every question has one global answer.',
+        'c7.title':       'Decision Trees',
+        'c7.theme':       'A model you can draw on a whiteboard.',
+        'c8.title':       'Ensembles',
+        'c8.theme':       'One tree overfits. A thousand trees generalize.',
+        'c9.title':       'Validation & Model Selection',
+        'c9.theme':       'You built a model. Now prove it works.',
+        'c10.title':      'Recommendations & Neural Networks',
+        'c10.theme':      'How machines learn what you want.',
+        'c11.title':      'LLMs & Generative AI',
+        'c11.theme':      'What changed.',
+        'c12.title':      'AI in Practice — Bias, Society, Synthesis',
+        'c12.theme':      'What happens when the model meets the real world.',
+    },
+    de: {
+        'hero.label':     'KI-Grundlagenkurs',
+        'desc.p1':        'Zwölf Einheiten. Am ersten Tag keine Formeln. Die Mathematik kommt, wenn man sie bereits braucht.',
+        'desc.p2':        'Dieser Kurs richtet sich an Menschen, die mit Daten arbeiten, Datenprodukte in Auftrag geben oder Teams leiten, die sie entwickeln. Man lernt hier nicht, das nächste Sprachmodell zu trainieren. Man lernt, die richtigen Fragen zu stellen, wenn jemand einem eines zeigt.',
+        'desc.p3':        'Wirtschaftsinformatik und E-Commerce. Jedes Thema hat einen direkten Pfad und einen optionalen Vertiefungsabschnitt. Die Tags zeigen, wie lange etwas dauert und wie viel Code nötig ist.',
+        'meta.classes':   '12 Einheiten',
+        'meta.hours':     'je 3 Std.',
+        'meta.hw':        '+ Hausaufgaben',
+        'meta.lang':      'EN / DE',
+        'classes.label':  'Einheiten',
+        'badge.mini':     'Mini-Modul',
+        'badge.inter':    'Zwischenaktivität',
+        'badge.discuss':  'Gruppendiskussion',
+        'inclass.label':  'Präsenzaktivität — kein Link',
+        'hw.label':       'Hausaufgabe:',
+        'c1.title':       'Was ist Intelligenz? Was ist Wissen?',
+        'c1.theme':       'Vor jedem Algorithmus: zwei Fragen.',
+        'c1.theme.full':  'Vor jedem Algorithmus: zwei Fragen. Was wollen wir bauen? Und woher wissen wir, ob wir überhaupt etwas wissen?',
+        'c1.m1.name':     'Können Maschinen denken?',
+        'c1.m1.desc':     'Turing stellte diese Frage 1950. Sie ist noch offen. ML-Taxonomie, schwache vs. starke KI und ein Analogiespiel, das zur eigenen Position zwingt, bevor die Theorie kommt.',
+        'c1.m2.name':     'Empirismus und die Logik der Wissenschaft',
+        'c1.m2.desc':     'Sextus Empiricus, Karl Popper und die Frage, was als Wissen gilt. Was nicht falsifizierbar ist, ist keine Wissenschaft. Das ist der erkenntnistheoretische Rahmen, auf dem der Rest des Kurses aufbaut.',
+        'c1.m3.name':     'Was ist Intelligenz?',
+        'c1.m3.desc':     'Kleingruppen erarbeiten Definitionen, führen sie zusammen und kritisieren sich gegenseitig. Die Klasse sammelt eine Fähigkeitenliste an der Tafel und ordnet jeden Punkt: schwache KI, starke KI oder keines von beidem.',
+        'c1.m4.name':     'Ist das KI?',
+        'c1.m4.desc':     'Taschenrechner, Spam-Filter, GPS, Face ID. Für jeden Punkt abstimmen. Die Antwort ist nicht immer eindeutig, und genau darum geht es.',
+        'c1.hw':          ' Eine zweifelhafte KI-Behauptung in Medien, Werbung oder einer Schlagzeile finden. Zur Einheit 2 mitbringen, inklusive eigener Diagnose.',
+        'c2.title':       'Wie Maschinen lernen',
+        'c2.theme':       'Vom menschlichen zum maschinellen Wissen.',
+        'c3.title':       'Lineare Regression + Erste Begegnung mit Lügen in Daten',
+        'c3.theme':       'Das einfachste nützliche Modell.',
+        'c4.title':       'Regularisierung & Feature Engineering',
+        'c4.theme':       'Wenn das Modell zu gut passt.',
+        'c5.title':       'Klassifikation: Grundlagen',
+        'c5.theme':       'Wenn die Antwort eine Kategorie ist, keine Zahl.',
+        'c6.title':       'Lokale Modelle & Geometrie',
+        'c6.theme':       'Nicht jede Frage hat eine globale Antwort.',
+        'c7.title':       'Entscheidungsbäume',
+        'c7.theme':       'Ein Modell, das man an die Tafel zeichnen kann.',
+        'c8.title':       'Ensembles',
+        'c8.theme':       'Ein Baum overfittet. Tausend Bäume generalisieren.',
+        'c9.title':       'Validierung & Modellauswahl',
+        'c9.theme':       'Man hat ein Modell gebaut. Jetzt muss man beweisen, dass es funktioniert.',
+        'c10.title':      'Empfehlungssysteme & Neuronale Netze',
+        'c10.theme':      'Wie Maschinen lernen, was man will.',
+        'c11.title':      'LLMs & Generative KI',
+        'c11.theme':      'Was sich verändert hat.',
+        'c12.title':      'KI in der Praxis: Bias, Gesellschaft, Synthese',
+        'c12.theme':      'Was passiert, wenn das Modell auf die echte Welt trifft.',
+    }
+};
+
+let currentLang = 'en';
+
+function toggleLang() {
+    currentLang = currentLang === 'en' ? 'de' : 'en';
+    document.documentElement.lang = currentLang;
+    document.querySelector('.lang-toggle').textContent = currentLang === 'en' ? 'DE' : 'EN';
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (T[currentLang][key] !== undefined) el.textContent = T[currentLang][key];
+    });
+}
+
+</script>
+</body>
+</html>
