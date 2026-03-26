@@ -245,6 +245,7 @@
         .badge-mini    { background: #131d2e; border: 1px solid #2a4070; color: #5080c0; }
         .badge-inter   { background: #1e1a0c; border: 1px solid #604010; color: #a06020; }
         .badge-discuss { background: #1a1a2e; border: 1px solid #3a3a70; color: #6060a0; }
+        .badge-tinker  { background: #23162b; border: 1px solid #5a3a70; color: #b070d0; }
 
         .module-name {
             font-size: 17px;
@@ -359,7 +360,6 @@
     <div class="classes">
         <div class="section-label" data-i18n="classes.label">Classes</div>
 
-        <!-- ── Class 1 ── -->
         <details open>
             <summary>
                 <span class="class-num">01</span>
@@ -432,25 +432,81 @@
 
                 <div class="homework">
                     <strong data-i18n="hw.label">Homework:</strong>
-                    <span data-i18n="c1.hw"> 1. Find one dubious AI claim in the media, advertising, or a news headline. Bring it to Class 2 with your diagnosis. </span>
+                    <span data-i18n="c1.hw"> Find one dubious AI claim in the media, advertising, or a news headline. Bring it to Class 2 with your diagnosis.</span>
                 </div>
             </div>
         </details>
 
-        <!-- ── Classes 2–12 placeholder ── -->
-        <details class="placeholder">
+        <details>
             <summary>
                 <span class="class-num">02</span>
-                <span class="class-title" data-i18n="c2.title">How Machines Learn</span>
-                <span class="class-theme" data-i18n="c2.theme">From human knowledge to machine knowledge.</span>
+                <span class="class-title" data-i18n="c2.title">Learning has many faces</span>
+                <span class="class-theme" data-i18n="c2.theme">let's see them all</span>
                 <span class="class-arrow">›</span>
             </summary>
+            <div class="class-body">
+                <div class="class-theme-full" data-i18n="c2.theme.full">Let's see them all. An introduction to the different shapes data and logic can take.</div>
+
+                <div class="modules">
+                    <a class="module-card" href="https://i-yam.github.io/duction/" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
+                            <span class="tag">all</span>
+                            <span class="tag">~40 min</span>
+                            <span class="tag">no-code</span>
+                            <span class="tag">try-without-ai</span>
+                            <span class="tag">ml-fundamentals</span>
+                        </div>
+                        <div class="module-name" data-i18n="c2.m1.name">Deduction vs. Induction</div>
+                        <div class="module-desc" data-i18n="c2.m1.desc">Exploring the difference between top-down reasoning and bottom-up learning from data.</div>
+                    </a>
+
+                    <a class="module-card" href="https://i-yam.github.io/anscombe/" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-inter" data-i18n="badge.inter">intermediate</span>
+                            <span class="tag">all</span>
+                            <span class="tag">~40 min</span>
+                            <span class="tag">try-without-ai</span>
+                            <span class="tag">statistics</span>
+                            <span class="tag">ml-fundamentals</span>
+                        </div>
+                        <div class="module-name" data-i18n="c2.m2.name">Anscombe's Quartet</div>
+                        <div class="module-desc" data-i18n="c2.m2.desc">Why looking at your data matters.</div>
+                    </a>
+
+                    <a class="module-card" href="https://i-yam.github.io/parametric/" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
+                            <span class="tag">optional</span>
+                            <span class="tag">all</span>
+                            <span class="tag">~20 min</span>
+                            <span class="tag">no-code</span>
+                            <span class="tag">try-without-ai</span>
+                            <span class="tag">ml-fundamentals</span>
+                        </div>
+                        <div class="module-name" data-i18n="c2.m3.name">Parametric vs Non-parametric Models</div>
+                        <div class="module-desc" data-i18n="c2.m3.desc">A quick optional dive into models that assume a specific form versus those that adapt freely to the data.</div>
+                    </a>
+
+                    <a class="module-card" href="https://i-yam.github.io/code_comprehension/" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-tinker" data-i18n="badge.tinker">tinker-session</span>
+                            <span class="tag">all</span>
+                            <span class="tag">~60 min</span>
+                            <span class="tag">some-code</span>
+                            <span class="tag">ml-fundamentals</span>
+                        </div>
+                        <div class="module-name" data-i18n="c2.m4.name">Code Comprehension</div>
+                        <div class="module-desc" data-i18n="c2.m4.desc">How to read and map out the structural logic of a program before writing a single line of your own code.</div>
+                    </a>
+                </div>
+            </div>
         </details>
 
         <details class="placeholder">
             <summary>
                 <span class="class-num">03</span>
-                <span class="class-title" data-i18n="c3.title">Linear Regression + First Encounter with Lies in Data</span>
+                <span class="class-title" data-i18n="c3.title">Linear Regression</span>
                 <span class="class-theme" data-i18n="c3.theme">The simplest useful model.</span>
                 <span class="class-arrow">›</span>
             </summary>
@@ -561,6 +617,7 @@ const T = {
         'badge.mini':     'mini-module',
         'badge.inter':    'intermediate',
         'badge.discuss':  'group discussion',
+        'badge.tinker':   'tinker-session',
         'inclass.label':  'In-class activity — no link',
         'hw.label':       'Homework:',
         'c1.title':       'What Is Intelligence? What Is Knowledge?',
@@ -577,9 +634,20 @@ const T = {
         'c1.m5.name':     'Class 1 Quiz',
         'c1.m5.desc':     'A short knowledge check on the concepts from Class 1.',
         'c1.hw':          ' Find one dubious AI claim in the media, advertising, or a news headline. Bring it to Class 2 with your diagnosis.',
-        'c2.title':       'How Machines Learn',
-        'c2.theme':       'From human knowledge to machine knowledge.',
-        'c3.title':       'Linear Regression + First Encounter with Lies in Data',
+        
+        'c2.title':       'Learning has many faces',
+        'c2.theme':       'let\'s see them all',
+        'c2.theme.full':  'Let\'s see them all. An introduction to the different shapes data and logic can take.',
+        'c2.m1.name':     'Deduction vs. Induction',
+        'c2.m1.desc':     'Exploring the difference between top-down reasoning and bottom-up learning from data.',
+        'c2.m2.name':     'Anscombe\'s Quartet',
+        'c2.m2.desc':     'Why looking at your data matters. Datasets with identical summary statistics but completely different distributions.',
+        'c2.m3.name':     'Parametric vs Non-parametric Models',
+        'c2.m3.desc':     'A quick optional dive into models that assume a specific form versus those that adapt freely to the data.',
+        'c2.m4.name':     'Code Comprehension',
+        'c2.m4.desc':     'How to read and map out the structural logic of a program before writing a single line of your own code.',
+
+        'c3.title':       'Linear Regression',
         'c3.theme':       'The simplest useful model.',
         'c4.title':       'Regularization & Feature Engineering',
         'c4.theme':       'When the model fits too well.',
@@ -613,6 +681,7 @@ const T = {
         'badge.mini':     'Mini-Modul',
         'badge.inter':    'Zwischenaktivität',
         'badge.discuss':  'Gruppendiskussion',
+        'badge.tinker':   'Tüftel-Session',
         'inclass.label':  'Präsenzaktivität — kein Link',
         'hw.label':       'Hausaufgabe:',
         'c1.title':       'Was ist Intelligenz? Was ist Wissen?',
@@ -628,10 +697,21 @@ const T = {
         'c1.m4.desc':     'Taschenrechner, Spam-Filter, GPS, Face ID. Für jeden Punkt abstimmen. Die Antwort ist nicht immer eindeutig, und genau darum geht es.',
         'c1.m5.name':     'Quiz — Einheit 1',
         'c1.m5.desc':     'Ein kurzes Quiz zu den Konzepten aus Einheit 1.',
-        'c1.hw':          '1. Eine zweifelhafte KI-Behauptung in Medien, Werbung oder einer Schlagzeile finden. Zur Einheit 2 mitbringen, inklusive eigener Diagnose.',
-        'c2.title':       'Wie Maschinen lernen',
-        'c2.theme':       'Vom menschlichen zum maschinellen Wissen.',
-        'c3.title':       'Lineare Regression + Erste Begegnung mit Lügen in Daten',
+        'c1.hw':          ' Eine zweifelhafte KI-Behauptung in Medien, Werbung oder einer Schlagzeile finden. Zur Einheit 2 mitbringen, inklusive eigener Diagnose.',
+        
+        'c2.title':       'Lernen hat viele Gesichter',
+        'c2.theme':       'Schauen wir sie uns alle an',
+        'c2.theme.full':  'Schauen wir sie uns alle an. Eine Einführung in die verschiedenen Formen, die Daten und Logik annehmen können.',
+        'c2.m1.name':     'Deduktion vs. Induktion',
+        'c2.m1.desc':     'Die Untersuchung des Unterschieds zwischen Top-down-Regeln und Bottom-up-Lernen aus Daten.',
+        'c2.m2.name':     'Anscombe-Quartett',
+        'c2.m2.desc':     'Warum man sich seine Daten immer ansehen sollte.',
+        'c2.m3.name':     'Parametrische vs. nicht-parametrische Modelle',
+        'c2.m3.desc':     'Ein optionaler Vertiefungsabschnitt in Modelle, die eine feste Form annehmen, im Vergleich zu solchen, die sich frei an die Daten anpassen.',
+        'c2.m4.name':     'Code-Verständnis',
+        'c2.m4.desc':     'Lesen und Verstehen der strukturellen Logik eines Programms, bevor man selbst Code schreibt.',
+
+        'c3.title':       'Lineare Regression',
         'c3.theme':       'Das einfachste nützliche Modell.',
         'c4.title':       'Regularisierung & Feature Engineering',
         'c4.theme':       'Wenn das Modell zu gut passt.',
