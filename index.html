@@ -360,7 +360,7 @@
     <div class="classes">
         <div class="section-label" data-i18n="classes.label">Classes</div>
 
-        <details open>
+
             <summary>
                 <span class="class-num">01</span>
                 <span class="class-title" data-i18n="c1.title">What Is Intelligence? What Is Knowledge?</span>
@@ -561,13 +561,68 @@
 
         <!-- RESTRUCTURED: 04 = Local Models, 05 = Regularization, 06 = Classification -->
 
-        <details class="placeholder">
+        <details>
             <summary>
                 <span class="class-num">04</span>
                 <span class="class-title" data-i18n="c4.title">Local Models &amp; Geometry</span>
                 <span class="class-theme" data-i18n="c4.theme">Not every question has one global answer.</span>
                 <span class="class-arrow">›</span>
             </summary>
+            <div class="class-body">
+                <div class="class-theme-full" data-i18n="c4.theme.full">Not every question has one global answer. Sometimes the right rule depends entirely on where you are — and who your neighbours are.</div>
+
+                <div class="modules">
+
+                    <a class="module-card" href="https://i-yam.github.io/glocal/" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
+                            <span class="tag">~20 min</span>
+                            <span class="tag">no-code</span>
+                            <span class="tag">try-without-ai</span>
+                            <span class="tag">ml-fundamentals</span>
+                        </div>
+                        <div class="module-name" data-i18n="c4.m1.name">Global vs Local Models</div>
+                        <div class="module-desc" data-i18n="c4.m1.desc">One equation for everything, or a different rule for every neighbourhood. Kurchatov's paths vs Sanssouci's geometry — and an interactive demo where you draw points and watch both models react.</div>
+                    </a>
+
+                    <a class="module-card" href="https://i-yam.github.io/neighbours/" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
+                            <span class="tag">~30 min</span>
+                            <span class="tag">no-code</span>
+                            <span class="tag">try-without-ai</span>
+                            <span class="tag">ml-fundamentals</span>
+                        </div>
+                        <div class="module-name" data-i18n="c4.m2.name">Birds of a Feather — K-NN Classification</div>
+                        <div class="module-desc" data-i18n="c4.m2.desc">K-Nearest Neighbours turns a proverb into an algorithm. A territorial game between Blobovia and Splotchia — place dots, watch the decision boundary emerge, change K and the distance metric, watch the border shift.</div>
+                    </a>
+
+                    <a class="module-card" href="https://i-yam.github.io/bv/" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
+                            <span class="tag">~20 min</span>
+                            <span class="tag">no-code</span>
+                            <span class="tag">try-without-ai</span>
+                            <span class="tag">regression</span>
+                        </div>
+                        <div class="module-name" data-i18n="c4.m3.name">K-NN Regression &amp; the Bias-Variance Trade-off</div>
+                        <div class="module-desc" data-i18n="c4.m3.desc">From voting to averaging. One number — K — slides you along a curve between two kinds of wrong: a model too rigid to follow the data, and one too twitchy to ignore noise.</div>
+                    </a>
+
+                    <a class="module-card" href="https://i-yam.github.io/dimcurse/" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
+                            <span class="tag">~20 min</span>
+                            <span class="tag">no-code</span>
+                            <span class="tag">try-without-ai</span>
+                            <span class="tag">ml-fundamentals</span>
+                        </div>
+                        <div class="module-name" data-i18n="c4.m4.name">The Curse of Dimensionality</div>
+                        <div class="module-desc" data-i18n="c4.m4.desc">High-dimensional space does not behave like the space you can draw on paper. Three puzzles — spheres vanishing inside cubes, all volume moving to the surface, random vectors going perpendicular — to convince you the intuition breaks.</div>
+                    </a>
+
+                </div>
+            </div>
         </details>
 
         <details class="placeholder">
@@ -708,6 +763,15 @@ const T = {
 
         'c4.title':       'Local Models & Geometry',
         'c4.theme':       'Not every question has one global answer.',
+        'c4.theme.full':  'Not every question has one global answer. Sometimes the right rule depends entirely on where you are — and who your neighbours are.',
+        'c4.m1.name':     'Global vs Local Models',
+        'c4.m1.desc':     'One equation for everything, or a different rule for every neighbourhood. Kurchatov\'s paths vs Sanssouci\'s geometry — and an interactive demo where you draw points and watch both models react.',
+        'c4.m2.name':     'Birds of a Feather — K-NN Classification',
+        'c4.m2.desc':     'K-Nearest Neighbours turns a proverb into an algorithm. A territorial game between Blobovia and Splotchia — place dots, watch the decision boundary emerge, change K and the distance metric, watch the border shift.',
+        'c4.m3.name':     'K-NN Regression & the Bias-Variance Trade-off',
+        'c4.m3.desc':     'From voting to averaging. One number — K — slides you along a curve between two kinds of wrong: a model too rigid to follow the data, and one too twitchy to ignore noise.',
+        'c4.m4.name':     'The Curse of Dimensionality',
+        'c4.m4.desc':     'High-dimensional space does not behave like the space you can draw on paper. Three puzzles — spheres vanishing inside cubes, all volume moving to the surface, random vectors going perpendicular — to convince you the intuition breaks.',
         'c5.title':       'Regularization',
         'c5.theme':       'When the model fits too well.',
         'c6.title':       'Classification Fundamentals',
@@ -780,6 +844,15 @@ const T = {
 
         'c4.title':       'Lokale Modelle & Geometrie',
         'c4.theme':       'Nicht jede Frage hat eine globale Antwort.',
+        'c4.theme.full':  'Nicht jede Frage hat eine globale Antwort. Manchmal hängt die richtige Regel vollständig davon ab, wo man sich befindet — und wer die Nachbarn sind.',
+        'c4.m1.name':     'Globale vs. lokale Modelle',
+        'c4.m1.desc':     'Eine Gleichung für alles oder eine andere Regel für jede Nachbarschaft. Kurtschatows Pfade vs. Sanssoukis Geometrie — mit einer interaktiven Demo, in der Punkte gesetzt werden und beide Modelle reagieren.',
+        'c4.m2.name':     'Gleich und Gleich gesellt sich gern — K-NN-Klassifikation',
+        'c4.m2.desc':     'K-Nächste-Nachbarn macht ein Sprichwort zum Algorithmus. Ein Gebietsstreit zwischen Blobovien und Splotschien — Punkte setzen, Entscheidungsgrenze entstehen sehen, K und Abstandsmaß ändern, Grenze verschieben.',
+        'c4.m3.name':     'K-NN-Regression & der Bias-Varianz-Kompromiss',
+        'c4.m3.desc':     'Vom Abstimmen zum Mitteln. Eine Zahl — K — verschiebt entlang einer Kurve zwischen zwei Arten des Falschseins: ein Modell zu starr, um den Daten zu folgen, und eines zu zittrig, um Rauschen zu ignorieren.',
+        'c4.m4.name':     'Der Fluch der Dimensionalität',
+        'c4.m4.desc':     'Hochdimensionaler Raum verhält sich nicht wie der Raum auf Papier. Drei Rätsel — Kugeln, die in Würfeln verschwinden, Volumen, das zur Oberfläche wandert, zufällige Vektoren, die senkrecht werden — als Beweis, dass die Intuition bricht.',
         'c5.title':       'Regularisierung',
         'c5.theme':       'Wenn das Modell zu gut passt.',
         'c6.title':       'Klassifikation: Grundlagen',
