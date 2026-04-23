@@ -246,6 +246,7 @@
         .badge-inter   { background: #1e1a0c; border: 1px solid #604010; color: #a06020; }
         .badge-discuss { background: #1a1a2e; border: 1px solid #3a3a70; color: #6060a0; }
         .badge-tinker  { background: #23162b; border: 1px solid #5a3a70; color: #b070d0; }
+        .badge-video   { background: #1a1e14; border: 1px solid #3a5020; color: #70a040; }
 
         .module-name {
             font-size: 17px;
@@ -559,8 +560,6 @@
             </div>
         </details>
 
-        <!-- RESTRUCTURED: 04 = Local Models, 05 = Regularization, 06 = Classification -->
-
         <details>
             <summary>
                 <span class="class-num">04</span>
@@ -625,13 +624,45 @@
             </div>
         </details>
 
-        <details class="placeholder">
+        <!-- CLASS 05: REGULARIZATION — FULLY POPULATED -->
+        <details>
             <summary>
                 <span class="class-num">05</span>
                 <span class="class-title" data-i18n="c5.title">Regularization</span>
                 <span class="class-theme" data-i18n="c5.theme">When the model fits too well.</span>
                 <span class="class-arrow">›</span>
             </summary>
+            <div class="class-body">
+                <div class="class-theme-full" data-i18n="c5.theme.full">A model that memorizes the training data is not learning — it is cheating. Regularization is the art of teaching a model to forget just enough to generalize.</div>
+
+                <div class="modules">
+
+                    <a class="module-card" href="https://youtu.be/Zewl93lrJoU" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-video" data-i18n="badge.video">video</span>
+                            <span class="tag">~20 min</span>
+                            <span class="tag">no-code</span>
+                            <span class="tag">watch-first</span>
+                            <span class="tag">regularization</span>
+                        </div>
+                        <div class="module-name" data-i18n="c5.m1.name">Regularization — Tutorial Walkthrough</div>
+                        <div class="module-desc" data-i18n="c5.m1.desc">If you need a video explanation of the tutorial, please have a look — but do not share forward.</div>
+                    </a>
+
+                    <a class="module-card" href="https://colab.research.google.com/drive/1Dp7lR5VdDTN-mtOi-VXubpEEB_JcbzPF#scrollTo=ex5-intro" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-tinker" data-i18n="badge.tinker">tinker-session</span>
+                            <span class="tag">~60 min</span>
+                            <span class="tag">some-code</span>
+                            <span class="tag">use-ai-here</span>
+                            <span class="tag">regularization</span>
+                        </div>
+                        <div class="module-name" data-i18n="c5.m2.name">Ridge, Lasso, and the Art of Shrinkage</div>
+                        <div class="module-desc" data-i18n="c5.m2.desc">A hands-on Colab notebook. Start with a model that overfits badly, then add L2 (Ridge) and L1 (Lasso) penalties and watch the coefficients shrink. Lasso goes further — it zeros some features out entirely, which is feature selection in disguise. Tune the regularization strength and observe the bias-variance trade-off in action.</div>
+                    </a>
+
+                </div>
+            </div>
         </details>
 
         <details class="placeholder">
@@ -722,6 +753,7 @@ const T = {
         'badge.inter':    'intermediate',
         'badge.discuss':  'group discussion',
         'badge.tinker':   'tinker-session',
+        'badge.video':    'video',
         'inclass.label':  'In-class activity — no link',
         'hw.label':       'Homework:',
         'c1.title':       'What Is Intelligence? What Is Knowledge?',
@@ -772,8 +804,15 @@ const T = {
         'c4.m3.desc':     'From voting to averaging. One number — K — slides you along a curve between two kinds of wrong: a model too rigid to follow the data, and one too twitchy to ignore noise.',
         'c4.m4.name':     'The Curse of Dimensionality',
         'c4.m4.desc':     'High-dimensional space does not behave like the space you can draw on paper. Three puzzles — spheres vanishing inside cubes, all volume moving to the surface, random vectors going perpendicular — to convince you the intuition breaks.',
+
         'c5.title':       'Regularization',
         'c5.theme':       'When the model fits too well.',
+        'c5.theme.full':  'A model that memorizes the training data is not learning — it is cheating. Regularization is the art of teaching a model to forget just enough to generalize.',
+        'c5.m1.name':     'Regularization — Tutorial Walkthrough',
+        'c5.m1.desc':     'If you need a video explanation of the tutorial, please have a look — but do not share forward.',
+        'c5.m2.name':     'Ridge, Lasso, and the Art of Shrinkage',
+        'c5.m2.desc':     'A hands-on Colab notebook. Start with a model that overfits badly, then add L2 (Ridge) and L1 (Lasso) penalties and watch the coefficients shrink. Lasso goes further — it zeros some features out entirely, which is feature selection in disguise. Tune the regularization strength and observe the bias-variance trade-off in action.',
+
         'c6.title':       'Classification Fundamentals',
         'c6.theme':       'When the answer is a category, not a number.',
         'c7.title':       'Decision Trees',
@@ -803,6 +842,7 @@ const T = {
         'badge.inter':    'Zwischenaktivität',
         'badge.discuss':  'Gruppendiskussion',
         'badge.tinker':   'Tüftel-Session',
+        'badge.video':    'Video',
         'inclass.label':  'Präsenzaktivität — kein Link',
         'hw.label':       'Hausaufgabe:',
         'c1.title':       'Was ist Intelligenz? Was ist Wissen?',
@@ -853,8 +893,15 @@ const T = {
         'c4.m3.desc':     'Vom Abstimmen zum Mitteln. Eine Zahl — K — verschiebt entlang einer Kurve zwischen zwei Arten des Falschseins: ein Modell zu starr, um den Daten zu folgen, und eines zu zittrig, um Rauschen zu ignorieren.',
         'c4.m4.name':     'Der Fluch der Dimensionalität',
         'c4.m4.desc':     'Hochdimensionaler Raum verhält sich nicht wie der Raum auf Papier. Drei Rätsel — Kugeln, die in Würfeln verschwinden, Volumen, das zur Oberfläche wandert, zufällige Vektoren, die senkrecht werden — als Beweis, dass die Intuition bricht.',
+
         'c5.title':       'Regularisierung',
         'c5.theme':       'Wenn das Modell zu gut passt.',
+        'c5.theme.full':  'Ein Modell, das die Trainingsdaten auswendig lernt, lernt nicht — es schummelt. Regularisierung ist die Kunst, einem Modell beizubringen, gerade genug zu vergessen, um zu generalisieren.',
+        'c5.m1.name':     'Regularisierung — Tutorial-Walkthrough',
+        'c5.m1.desc':     'Wer eine Videoerklärung zum Tutorial braucht, kann gerne reinschauen — aber bitte nicht weiterleiten.',
+        'c5.m2.name':     'Ridge, Lasso und die Kunst des Schrumpfens',
+        'c5.m2.desc':     'Ein praktisches Colab-Notebook. Mit einem Modell beginnen, das stark overfittet, dann L2- (Ridge) und L1- (Lasso) Strafen hinzufügen und zusehen, wie die Koeffizienten schrumpfen. Lasso geht weiter — es setzt manche Features ganz auf null, was versteckter Feature-Selektion entspricht. Die Regularisierungsstärke anpassen und den Bias-Varianz-Kompromiss in Aktion beobachten.',
+
         'c6.title':       'Klassifikation: Grundlagen',
         'c6.theme':       'Wenn die Antwort eine Kategorie ist, keine Zahl.',
         'c7.title':       'Entscheidungsbäume',
