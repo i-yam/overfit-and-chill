@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Overfit &amp; Chill</title>
-
+ 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
+ 
         body {
             background-color: #141420;
             color: #e8e8f0;
@@ -15,13 +15,13 @@
             line-height: 1.8;
             font-size: 18px;
         }
-
+ 
         .container {
             max-width: 720px;
             margin: 0 auto;
             padding: 0 28px;
         }
-
+ 
         /* === Language toggle === */
         .lang-toggle {
             position: fixed;
@@ -39,12 +39,12 @@
             transition: background 0.2s;
         }
         .lang-toggle:hover { background: #363658; }
-
+ 
         /* === Hero === */
         .hero {
             padding: 90px 0 56px;
         }
-
+ 
         .hero-label {
             font-size: 12px;
             font-family: sans-serif;
@@ -53,7 +53,7 @@
             text-transform: uppercase;
             margin-bottom: 20px;
         }
-
+ 
         .hero h1 {
             font-size: 52px;
             font-weight: 700;
@@ -61,35 +61,35 @@
             line-height: 1.15;
             margin-bottom: 32px;
         }
-
+ 
         .hero h1 span {
             color: #5a5aaa;
         }
-
+ 
         /* === Course description === */
         .course-desc {
             padding-bottom: 60px;
             border-bottom: 1px solid #1e1e30;
         }
-
+ 
         .course-desc p {
             color: #999;
             font-size: 17px;
             margin-bottom: 18px;
             line-height: 1.85;
         }
-
+ 
         .course-desc p:last-child {
             margin-bottom: 0;
         }
-
+ 
         .course-meta {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             margin-top: 28px;
         }
-
+ 
         .meta-pill {
             background: #1c1c2e;
             border: 1px solid #2a2a40;
@@ -100,12 +100,12 @@
             color: #5a5a80;
             letter-spacing: 0.3px;
         }
-
+ 
         /* === Class list === */
         .classes {
             padding: 48px 0 80px;
         }
-
+ 
         .section-label {
             font-size: 11px;
             font-family: sans-serif;
@@ -114,7 +114,7 @@
             text-transform: uppercase;
             margin-bottom: 24px;
         }
-
+ 
         /* === Accordion (details/summary) === */
         details {
             border: 1px solid #2a2a40;
@@ -123,11 +123,11 @@
             background: #1a1a2a;
             overflow: hidden;
         }
-
+ 
         details[open] {
             border-color: #3a3a58;
         }
-
+ 
         summary {
             list-style: none;
             cursor: pointer;
@@ -140,7 +140,7 @@
         }
         summary::-webkit-details-marker { display: none; }
         summary:hover { background: #1e1e30; }
-
+ 
         .class-num {
             font-size: 11px;
             font-family: sans-serif;
@@ -150,16 +150,16 @@
             flex-shrink: 0;
             padding-top: 3px;
         }
-
+ 
         .class-title {
             font-size: 18px;
             font-weight: 700;
             color: #c8c8e0;
             flex: 1;
         }
-
+ 
         details[open] .class-title { color: #fff; }
-
+ 
         .class-arrow {
             font-size: 12px;
             color: #333;
@@ -168,7 +168,7 @@
             font-family: sans-serif;
         }
         details[open] .class-arrow { transform: rotate(90deg); color: #5a5a80; }
-
+ 
         .class-theme {
             font-size: 14px;
             color: #444;
@@ -179,13 +179,13 @@
             text-align: right;
             line-height: 1.4;
         }
-
+ 
         /* === Class body === */
         .class-body {
             padding: 0 28px 28px;
             border-top: 1px solid #222234;
         }
-
+ 
         .class-theme-full {
             font-size: 15px;
             color: #555;
@@ -196,14 +196,14 @@
             margin-bottom: 24px;
             line-height: 1.6;
         }
-
+ 
         /* === Module cards === */
         .modules {
             display: flex;
             flex-direction: column;
             gap: 14px;
         }
-
+ 
         .module-card {
             background: #141420;
             border: 1px solid #222234;
@@ -219,12 +219,12 @@
             background: #181828;
             text-decoration: none;
         }
-
+ 
         .module-card.inclass {
             opacity: 0.55;
             cursor: default;
         }
-
+ 
         .module-top {
             display: flex;
             align-items: center;
@@ -232,7 +232,7 @@
             margin-bottom: 10px;
             flex-wrap: wrap;
         }
-
+ 
         .activity-badge {
             font-size: 11px;
             font-family: sans-serif;
@@ -248,7 +248,7 @@
         .badge-tinker  { background: #23162b; border: 1px solid #5a3a70; color: #b070d0; }
         .badge-video   { background: #1a1e14; border: 1px solid #3a5020; color: #70a040; }
         .badge-test    { background: #2b1414; border: 1px solid #703030; color: #d06060; }
-
+ 
         .module-name {
             font-size: 17px;
             font-weight: 700;
@@ -256,7 +256,7 @@
             margin-bottom: 8px;
             line-height: 1.3;
         }
-
+ 
         .module-desc {
             font-size: 14px;
             color: #555;
@@ -264,13 +264,13 @@
             line-height: 1.6;
             margin-bottom: 12px;
         }
-
+ 
         .module-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
         }
-
+ 
         .tag {
             background: #1c1c2e;
             color: #444464;
@@ -280,14 +280,14 @@
             font-size: 11px;
             font-family: sans-serif;
         }
-
+ 
         .inclass-label {
             font-size: 12px;
             font-family: sans-serif;
             color: #333;
             margin-top: 10px;
         }
-
+ 
         /* === Homework === */
         .homework {
             margin-top: 28px;
@@ -300,19 +300,19 @@
             color: #444;
             line-height: 1.6;
         }
-
+ 
         .homework strong {
             color: #666;
             font-weight: bold;
         }
-
+ 
         /* === Placeholder classes === */
         .placeholder summary {
             opacity: 0.35;
             cursor: default;
             pointer-events: none;
         }
-
+ 
         /* === Footer === */
         footer {
             text-align: center;
@@ -323,10 +323,10 @@
         }
         footer a { color: #333; }
         footer a:hover { color: #666; }
-
+ 
         a { color: #80b4f0; text-decoration: none; }
         a:hover { text-decoration: underline; }
-
+ 
         @media (max-width: 600px) {
             .hero h1       { font-size: 38px; }
             .class-theme   { display: none; }
@@ -337,16 +337,16 @@
     </style>
 </head>
 <body>
-
+ 
 <button class="lang-toggle" onclick="toggleLang()">DE</button>
-
+ 
 <div class="container">
-
+ 
     <div class="hero">
         <div class="hero-label" data-i18n="hero.label">AI Foundations Course</div>
         <h1>Overfit &amp; <span>Chill</span></h1>
     </div>
-
+ 
     <div class="course-desc">
         <p data-i18n="desc.p1">Twelve classes. No formulas on the first day. The math arrives when you need it.</p>
         <p data-i18n="desc.p2">This course is for people who work with data, commission data products, or manage teams that build them. You will not leave knowing how to train the next language model. You will leave knowing what questions to ask when someone shows you one.</p>
@@ -358,10 +358,10 @@
             <span class="meta-pill" data-i18n="meta.lang">EN / DE</span>
         </div>
     </div>
-
+ 
     <div class="classes">
         <div class="section-label" data-i18n="classes.label">Classes</div>
-
+ 
         <details>
             <summary>
                 <span class="class-num">01</span>
@@ -371,9 +371,9 @@
             </summary>
             <div class="class-body">
                 <div class="class-theme-full" data-i18n="c1.theme.full">Before any algorithm, two questions. What are we trying to build? And how do we know if we know anything?</div>
-
+ 
                 <div class="modules">
-
+ 
                     <a class="module-card" href="https://i-yam.github.io/can_machines_think/" target="_blank">
                         <div class="module-top">
                             <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
@@ -384,7 +384,7 @@
                         <div class="module-name" data-i18n="c1.m1.name">Can Machines Think?</div>
                         <div class="module-desc" data-i18n="c1.m1.desc">Turing asked this in 1950. The question is still open. ML taxonomy, weak vs strong AI, and an analogy game that forces you to take a position before the theory arrives.</div>
                     </a>
-
+ 
                     <a class="module-card" href="https://i-yam.github.io/spiders_and_legs/" target="_blank">
                         <div class="module-top">
                             <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
@@ -395,7 +395,7 @@
                         <div class="module-name" data-i18n="c1.m2.name">Empiricism and the Logic of Science</div>
                         <div class="module-desc" data-i18n="c1.m2.desc">Sextus Empiricus, Karl Popper, and the question of what counts as knowledge. If it cannot be falsified, it is not science. This is the epistemological frame the rest of the course runs on.</div>
                     </a>
-
+ 
                     <div class="module-card inclass">
                         <div class="module-top">
                             <span class="activity-badge badge-discuss" data-i18n="badge.discuss">group discussion</span>
@@ -407,7 +407,7 @@
                         <div class="module-desc" data-i18n="c1.m3.desc">Small groups produce definitions, merge, and critique each other. The class collects a capability list on the board, then sorts each item: weak AI, strong AI, or neither.</div>
                         <div class="inclass-label" data-i18n="inclass.label">In-class activity — no link</div>
                     </div>
-
+ 
                     <a class="module-card" href="https://i-yam.github.io/is_ai/" target="_blank">
                         <div class="module-top">
                             <span class="activity-badge badge-inter" data-i18n="badge.inter">intermediate</span>
@@ -418,7 +418,7 @@
                         <div class="module-name" data-i18n="c1.m4.name">Is This AI?</div>
                         <div class="module-desc" data-i18n="c1.m4.desc">Calculator, spam filter, GPS, Face ID. Vote on each one. The answer is not always obvious, and that is the point.</div>
                     </a>
-
+ 
                     <a class="module-card" href="https://i-yam.github.io/quiz1/" target="_blank">
                         <div class="module-top">
                             <span class="activity-badge badge-inter" data-i18n="badge.inter">intermediate</span>
@@ -429,16 +429,16 @@
                         <div class="module-name" data-i18n="c1.m5.name">Class 1 Quiz</div>
                         <div class="module-desc" data-i18n="c1.m5.desc">A short knowledge check on the concepts from Class 1.</div>
                     </a>
-
+ 
                 </div>
-
+ 
                 <div class="homework">
                     <strong data-i18n="hw.label">Homework:</strong>
                     <span data-i18n="c1.hw"> Find one dubious AI claim in the media, advertising, or a news headline. Bring it to Class 2 with your diagnosis.</span>
                 </div>
             </div>
         </details>
-
+ 
         <details>
             <summary>
                 <span class="class-num">02</span>
@@ -448,7 +448,7 @@
             </summary>
             <div class="class-body">
                 <div class="class-theme-full" data-i18n="c2.theme.full">Let's see them all. An introduction to the different shapes data and logic can take.</div>
-
+ 
                 <div class="modules">
                     <a class="module-card" href="https://i-yam.github.io/duction/" target="_blank">
                         <div class="module-top">
@@ -462,7 +462,7 @@
                         <div class="module-name" data-i18n="c2.m1.name">Deduction vs. Induction</div>
                         <div class="module-desc" data-i18n="c2.m1.desc">Exploring the difference between top-down reasoning and bottom-up learning from data.</div>
                     </a>
-
+ 
                     <a class="module-card" href="https://i-yam.github.io/anscombe/" target="_blank">
                         <div class="module-top">
                             <span class="activity-badge badge-inter" data-i18n="badge.inter">intermediate</span>
@@ -475,7 +475,7 @@
                         <div class="module-name" data-i18n="c2.m2.name">Anscombe's Quartet</div>
                         <div class="module-desc" data-i18n="c2.m2.desc">Why looking at your data matters.</div>
                     </a>
-
+ 
                     <a class="module-card" href="https://i-yam.github.io/parametric/" target="_blank">
                         <div class="module-top">
                             <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
@@ -489,7 +489,7 @@
                         <div class="module-name" data-i18n="c2.m3.name">Parametric vs Non-parametric Models</div>
                         <div class="module-desc" data-i18n="c2.m3.desc">A quick optional dive into models that assume a specific form versus those that adapt freely to the data.</div>
                     </a>
-
+ 
                     <a class="module-card" href="https://i-yam.github.io/code_comprehension/" target="_blank">
                         <div class="module-top">
                             <span class="activity-badge badge-tinker" data-i18n="badge.tinker">tinker-session</span>
@@ -504,7 +504,7 @@
                 </div>
             </div>
         </details>
-
+ 
         <details>
             <summary>
                 <span class="class-num">03</span>
@@ -514,9 +514,9 @@
             </summary>
             <div class="class-body">
                 <div class="class-theme-full" data-i18n="c3.theme.full">The line that started it all. Find the best straight line through a cloud of points, understand why the imprecise training version works better, then try it on real data.</div>
-
+ 
                 <div class="modules">
-
+ 
                     <a class="module-card" href="https://i-yam.github.io/hot_or_cold/" target="_blank">
                         <div class="module-top">
                             <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
@@ -529,7 +529,7 @@
                         <div class="module-name" data-i18n="c3.m1.name">The Straightest Tool in the Shed</div>
                         <div class="module-desc" data-i18n="c3.m1.desc">From Galton's Victorian curiosity to gradient descent. OLS gives you the exact answer in one step. The game makes you feel the loss landscape before you understand it.</div>
                     </a>
-
+ 
                     <a class="module-card" href="https://i-yam.github.io/sgd/" target="_blank">
                         <div class="module-top">
                             <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
@@ -543,7 +543,7 @@
                         <div class="module-name" data-i18n="c3.m2.name">Downhill in the Dark</div>
                         <div class="module-desc" data-i18n="c3.m2.desc">Batch gradient descent is precise and gets stuck. Stochastic gradient descent is sloppy and works better. Randomness as a design choice, not a flaw.</div>
                     </a>
-
+ 
                     <a class="module-card" href="https://i-yam.github.io/linregtutorial/" target="_blank">
                         <div class="module-top">
                             <span class="activity-badge badge-tinker" data-i18n="badge.tinker">tinker-session</span>
@@ -556,11 +556,11 @@
                         <div class="module-name" data-i18n="c3.m3.name">Try It on Real Data</div>
                         <div class="module-desc" data-i18n="c3.m3.desc">Download the insurance dataset, open the Colab notebook, and fit your first regression model on real numbers.</div>
                     </a>
-
+ 
                 </div>
             </div>
         </details>
-
+ 
         <details>
             <summary>
                 <span class="class-num">04</span>
@@ -570,9 +570,9 @@
             </summary>
             <div class="class-body">
                 <div class="class-theme-full" data-i18n="c4.theme.full">Not every question has one global answer. Sometimes the right rule depends entirely on where you are — and who your neighbours are.</div>
-
+ 
                 <div class="modules">
-
+ 
                     <a class="module-card" href="https://i-yam.github.io/glocal/" target="_blank">
                         <div class="module-top">
                             <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
@@ -584,7 +584,7 @@
                         <div class="module-name" data-i18n="c4.m1.name">Global vs Local Models</div>
                         <div class="module-desc" data-i18n="c4.m1.desc">One equation for everything, or a different rule for every neighbourhood. Kurchatov's paths vs Sanssouci's geometry — and an interactive demo where you draw points and watch both models react.</div>
                     </a>
-
+ 
                     <a class="module-card" href="https://i-yam.github.io/neighbours/" target="_blank">
                         <div class="module-top">
                             <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
@@ -596,7 +596,7 @@
                         <div class="module-name" data-i18n="c4.m2.name">Birds of a Feather — K-NN Classification</div>
                         <div class="module-desc" data-i18n="c4.m2.desc">K-Nearest Neighbours turns a proverb into an algorithm. A territorial game between Blobovia and Splotchia — place dots, watch the decision boundary emerge, change K and the distance metric, watch the border shift.</div>
                     </a>
-
+ 
                     <a class="module-card" href="https://i-yam.github.io/bv/" target="_blank">
                         <div class="module-top">
                             <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
@@ -608,7 +608,7 @@
                         <div class="module-name" data-i18n="c4.m3.name">K-NN Regression &amp; the Bias-Variance Trade-off</div>
                         <div class="module-desc" data-i18n="c4.m3.desc">From voting to averaging. One number — K — slides you along a curve between two kinds of wrong: a model too rigid to follow the data, and one too twitchy to ignore noise.</div>
                     </a>
-
+ 
                     <a class="module-card" href="https://i-yam.github.io/dimcurse/" target="_blank">
                         <div class="module-top">
                             <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
@@ -620,11 +620,11 @@
                         <div class="module-name" data-i18n="c4.m4.name">The Curse of Dimensionality</div>
                         <div class="module-desc" data-i18n="c4.m4.desc">High-dimensional space does not behave like the space you can draw on paper. Three puzzles — spheres vanishing inside cubes, all volume moving to the surface, random vectors going perpendicular — to convince you the intuition breaks.</div>
                     </a>
-
+ 
                 </div>
             </div>
         </details>
-
+ 
         <!-- CLASS 05: REGULARIZATION — FULLY POPULATED -->
         <details>
             <summary>
@@ -635,9 +635,9 @@
             </summary>
             <div class="class-body">
                 <div class="class-theme-full" data-i18n="c5.theme.full">A model that memorizes the training data is not learning — it is cheating. Regularization is the art of teaching a model to forget just enough to generalize.</div>
-
+ 
                 <div class="modules">
-
+ 
                     <a class="module-card" href="https://youtu.be/Zewl93lrJoU" target="_blank">
                         <div class="module-top">
                             <span class="activity-badge badge-video" data-i18n="badge.video">video</span>
@@ -649,7 +649,7 @@
                         <div class="module-name" data-i18n="c5.m1.name">Regularization — Tutorial Walkthrough</div>
                         <div class="module-desc" data-i18n="c5.m1.desc">If you need a video explanation of the tutorial, please have a look — but do not share forward.</div>
                     </a>
-
+ 
                     <a class="module-card" href="https://colab.research.google.com/drive/1Dp7lR5VdDTN-mtOi-VXubpEEB_JcbzPF#scrollTo=ex5-intro" target="_blank">
                         <div class="module-top">
                             <span class="activity-badge badge-tinker" data-i18n="badge.tinker">tinker-session</span>
@@ -661,11 +661,11 @@
                         <div class="module-name" data-i18n="c5.m2.name">Ridge, Lasso, and the Art of Shrinkage</div>
                         <div class="module-desc" data-i18n="c5.m2.desc">A hands-on Colab notebook. Start with a model that overfits badly, then add L2 (Ridge) and L1 (Lasso) penalties and watch the coefficients shrink. Lasso goes further — it zeros some features out entirely, which is feature selection in disguise. Tune the regularization strength and observe the bias-variance trade-off in action.</div>
                     </a>
-
+ 
                 </div>
             </div>
         </details>
-
+ 
         <!-- CLASS 06: CLASSIFICATION FUNDAMENTALS — FULLY POPULATED -->
         <details>
             <summary>
@@ -676,9 +676,9 @@
             </summary>
             <div class="class-body">
                 <div class="class-theme-full" data-i18n="c6.theme.full">When the answer is a category, not a number. The shape of a classifier, the metrics that judge it, and the Bayesian arithmetic underneath.</div>
-
+ 
                 <div class="modules">
-
+ 
                     <a class="module-card" href="https://i-yam.github.io/decisions/" target="_blank">
                         <div class="module-top">
                             <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
@@ -690,7 +690,7 @@
                         <div class="module-name" data-i18n="c6.m1.name">Modelling Decisions</div>
                         <div class="module-desc" data-i18n="c6.m1.desc">From Verhulst's rabbits to a vote in Bundestag. The sigmoid turns a sum of scores into a probability between zero and one. Three games — tilt the decision boundary, watch each feature deposit its log-odds, and drag the threshold to see precision trade places with recall.</div>
                     </a>
-
+ 
                     <a class="module-card" href="https://i-yam.github.io/shrooms/" target="_blank">
                         <div class="module-top">
                             <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
@@ -703,7 +703,7 @@
                         <div class="module-name" data-i18n="c6.m2.name">Pilzwanderung — The Four Mistakes</div>
                         <div class="module-desc" data-i18n="c6.m2.desc">Precision, recall, accuracy, F1. Four numbers arguing about the same basket of mushrooms. Pick a threshold, watch dinner turn into a funeral. One demonstration of why ninety-nine percent accuracy can still kill you.</div>
                     </a>
-
+ 
                     <a class="module-card" href="https://i-yam.github.io/bayes/" target="_blank">
                         <div class="module-top">
                             <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
@@ -716,7 +716,7 @@
                         <div class="module-name" data-i18n="c6.m3.name">Thinking in Chances</div>
                         <div class="module-desc" data-i18n="c6.m3.desc">A patient tests positive on a ninety-nine percent accurate test. Most people say ninety-nine. The answer is closer to fifty. Three games — a mammogram, an urn, and Turing's Banburismus at Bletchley Park — all built on the same arithmetic of changing your mind.</div>
                     </a>
-
+ 
                     <a class="module-card" href="https://i-yam.github.io/test6/" target="_blank">
                         <div class="module-top">
                             <span class="activity-badge badge-test" data-i18n="badge.test">self-test</span>
@@ -728,11 +728,11 @@
                         <div class="module-name" data-i18n="c6.m4.name">Self-Test — Modules 1 to 6</div>
                         <div class="module-desc" data-i18n="c6.m4.desc">Fourteen multiple-choice questions and two open ones, covering everything from Class 1 through Class 6. One at a time. A checkpoint before the second half of the course.</div>
                     </a>
-
+ 
                 </div>
             </div>
         </details>
-
+ 
         <!-- CLASS 07: DECISION TREES — FULLY POPULATED -->
         <details>
             <summary>
@@ -743,9 +743,9 @@
             </summary>
             <div class="class-body">
                 <div class="class-theme-full" data-i18n="c7.theme.full">A model you can draw on a whiteboard. How to split, when to stop, and what the tree is actually learning. The whole thing is a game of twenty questions, played greedily.</div>
-
+ 
                 <div class="modules">
-
+ 
                     <a class="module-card" href="https://i-yam.github.io/akinator/" target="_blank">
                         <div class="module-top">
                             <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
@@ -758,7 +758,7 @@
                         <div class="module-name" data-i18n="c7.m1.name">The Animal Guesser</div>
                         <div class="module-desc" data-i18n="c7.m1.desc">Think of an animal. The machine asks yes-or-no questions and narrows the field until it names your pick. That is a decision tree, built one question at a time. The question you ask first is the one that matters most.</div>
                     </a>
-
+ 
                     <a class="module-card" href="https://i-yam.github.io/entropy/" target="_blank">
                         <div class="module-top">
                             <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
@@ -771,7 +771,7 @@
                         <div class="module-name" data-i18n="c7.m2.name">Entropy, Gini, Information Gain</div>
                         <div class="module-desc" data-i18n="c7.m2.desc">How does a tree know which question to ask first? Two rulers for measuring a mixed deck, and one number that scores a split. Built on 712 Titanic passengers — why "sex" beats "age" as a first question, and why a clever-sounding question can tell you nothing.</div>
                     </a>
-
+ 
                     <a class="module-card" href="https://i-yam.github.io/titanic/" target="_blank">
                         <div class="module-top">
                             <span class="activity-badge badge-tinker" data-i18n="badge.tinker">tinker-session</span>
@@ -785,20 +785,53 @@
                         <div class="module-name" data-i18n="c7.m3.name">Titanic Decision Tree</div>
                         <div class="module-desc" data-i18n="c7.m3.desc">Put yourself in the passenger table and let the tree decide. A Colab notebook that builds a tree on who lived and who died, reads its splits out loud, and confronts what the features actually encode. The uncomfortable conversation is the point.</div>
                     </a>
-
+ 
                 </div>
             </div>
         </details>
-
-        <details class="placeholder">
+ 
+        <details>
             <summary>
                 <span class="class-num">08</span>
                 <span class="class-title" data-i18n="c8.title">Ensembles</span>
                 <span class="class-theme" data-i18n="c8.theme">One tree overfits. A thousand trees generalize.</span>
                 <span class="class-arrow">›</span>
             </summary>
+            <div class="class-body">
+                <div class="class-theme-full" data-i18n="c8.theme.full">One tree overfits. A thousand trees generalize. Why aggregating many weak models beats any single strong one.</div>
+ 
+                <div class="modules">
+ 
+                    <a class="module-card" href="https://i-yam.github.io/ensambles/" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
+                            <span class="tag">~20 min</span>
+                            <span class="tag">no-code</span>
+                            <span class="tag">try-without-ai</span>
+                            <span class="tag">trees-and-forests</span>
+                            <span class="tag">ml-fundamentals</span>
+                        </div>
+                        <div class="module-name" data-i18n="c8.m1.name">One Tree Is a Liar</div>
+                        <div class="module-desc" data-i18n="c8.m1.desc">Bagging, stacking, and boosting, the three ways to turn a crowd of unreliable models into one you can trust. Built on the Titanic tree, with real accuracy climbing from a single overfit tree to a blended ensemble, and a sandbox to watch each strategy fit a noisy curve.</div>
+                    </a>
+ 
+                    <a class="module-card" href="https://i-yam.github.io/boosting/" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
+                            <span class="tag">~20 min</span>
+                            <span class="tag">no-code</span>
+                            <span class="tag">try-without-ai</span>
+                            <span class="tag">trees-and-forests</span>
+                            <span class="tag">math-foundations</span>
+                        </div>
+                        <div class="module-name" data-i18n="c8.m2.name">Chasing the Leftovers</div>
+                        <div class="module-desc" data-i18n="c8.m2.desc">Gradient boosting, one residual at a time. The prediction sits up top, the leftover error below with the next tree already fit to it. Add trees by hand, turn the learning rate, and watch the test error bottom out and climb back into overfitting.</div>
+                    </a>
+ 
+                </div>
+            </div>
         </details>
-
+ 
         <details class="placeholder">
             <summary>
                 <span class="class-num">09</span>
@@ -807,7 +840,7 @@
                 <span class="class-arrow">›</span>
             </summary>
         </details>
-
+ 
         <details class="placeholder">
             <summary>
                 <span class="class-num">10</span>
@@ -816,7 +849,7 @@
                 <span class="class-arrow">›</span>
             </summary>
         </details>
-
+ 
         <details class="placeholder">
             <summary>
                 <span class="class-num">11</span>
@@ -825,7 +858,7 @@
                 <span class="class-arrow">›</span>
             </summary>
         </details>
-
+ 
         <details class="placeholder">
             <summary>
                 <span class="class-num">12</span>
@@ -834,17 +867,17 @@
                 <span class="class-arrow">›</span>
             </summary>
         </details>
-
+ 
     </div>
-
+ 
 </div>
-
+ 
 <footer>
     <a href="https://github.com/i-yam/overfit-and-chill" target="_blank">github.com/i-yam/overfit-and-chill</a>
 </footer>
-
+ 
 <script>
-
+ 
 const T = {
     en: {
         'hero.label':     'AI Foundations Course',
@@ -890,7 +923,7 @@ const T = {
         'c2.m3.desc':     'A quick optional dive into models that assume a specific form versus those that adapt freely to the data.',
         'c2.m4.name':     'Code Comprehension',
         'c2.m4.desc':     'How to read and map out the structural logic of a program before writing a single line of your own code.',
-
+ 
         'c3.title':       'Linear Regression',
         'c3.theme':       'The simplest useful model.',
         'c3.theme.full':  'The line that started it all. Find the best straight line through a cloud of points, understand why the imprecise training version works better, then try it on real data.',
@@ -900,7 +933,7 @@ const T = {
         'c3.m2.desc':     'Batch gradient descent is precise and gets stuck. Stochastic gradient descent is sloppy and works better. Randomness as a design choice, not a flaw.',
         'c3.m3.name':     'Try It on Real Data',
         'c3.m3.desc':     'Download the insurance dataset, open the Colab notebook, and fit your first regression model on real numbers.',
-
+ 
         'c4.title':       'Local Models & Geometry',
         'c4.theme':       'Not every question has one global answer.',
         'c4.theme.full':  'Not every question has one global answer. Sometimes the right rule depends entirely on where you are — and who your neighbours are.',
@@ -912,7 +945,7 @@ const T = {
         'c4.m3.desc':     'From voting to averaging. One number — K — slides you along a curve between two kinds of wrong: a model too rigid to follow the data, and one too twitchy to ignore noise.',
         'c4.m4.name':     'The Curse of Dimensionality',
         'c4.m4.desc':     'High-dimensional space does not behave like the space you can draw on paper. Three puzzles — spheres vanishing inside cubes, all volume moving to the surface, random vectors going perpendicular — to convince you the intuition breaks.',
-
+ 
         'c5.title':       'Regularization',
         'c5.theme':       'When the model fits too well.',
         'c5.theme.full':  'A model that memorizes the training data is not learning — it is cheating. Regularization is the art of teaching a model to forget just enough to generalize.',
@@ -920,7 +953,7 @@ const T = {
         'c5.m1.desc':     'If you need a video explanation of the tutorial, please have a look — but do not share forward.',
         'c5.m2.name':     'Ridge, Lasso, and the Art of Shrinkage',
         'c5.m2.desc':     'A hands-on Colab notebook. Start with a model that overfits badly, then add L2 (Ridge) and L1 (Lasso) penalties and watch the coefficients shrink. Lasso goes further — it zeros some features out entirely, which is feature selection in disguise. Tune the regularization strength and observe the bias-variance trade-off in action.',
-
+ 
         'c6.title':       'Classification Fundamentals',
         'c6.theme':       'When the answer is a category, not a number.',
         'c6.theme.full':  'When the answer is a category, not a number. The shape of a classifier, the metrics that judge it, and the Bayesian arithmetic underneath.',
@@ -943,6 +976,11 @@ const T = {
         'c7.m3.desc':     'Put yourself in the passenger table and let the tree decide. A Colab notebook that builds a tree on who lived and who died, reads its splits out loud, and confronts what the features actually encode. The uncomfortable conversation is the point.',
         'c8.title':       'Ensembles',
         'c8.theme':       'One tree overfits. A thousand trees generalize.',
+        'c8.theme.full':  'One tree overfits. A thousand trees generalize. Why aggregating many weak models beats any single strong one.',
+        'c8.m1.name':     'One Tree Is a Liar',
+        'c8.m1.desc':     'Bagging, stacking, and boosting, the three ways to turn a crowd of unreliable models into one you can trust. Built on the Titanic tree, with real accuracy climbing from a single overfit tree to a blended ensemble, and a sandbox to watch each strategy fit a noisy curve.',
+        'c8.m2.name':     'Chasing the Leftovers',
+        'c8.m2.desc':     'Gradient boosting, one residual at a time. The prediction sits up top, the leftover error below with the next tree already fit to it. Add trees by hand, turn the learning rate, and watch the test error bottom out and climb back into overfitting.',
         'c9.title':       'Validation & Model Selection',
         'c9.theme':       'You built a model. Now prove it works.',
         'c10.title':      'Recommendations & Neural Networks',
@@ -996,7 +1034,7 @@ const T = {
         'c2.m3.desc':     'Ein optionaler Vertiefungsabschnitt in Modelle, die eine feste Form annehmen, im Vergleich zu solchen, die sich frei an die Daten anpassen.',
         'c2.m4.name':     'Code-Verständnis',
         'c2.m4.desc':     'Lesen und Verstehen der strukturellen Logik eines Programms, bevor man selbst Code schreibt.',
-
+ 
         'c3.title':       'Lineare Regression',
         'c3.theme':       'Das einfachste nützliche Modell.',
         'c3.theme.full':  'Die Gerade, mit der alles begann. Die beste Gerade durch eine Punktwolke finden, verstehen, warum die ungenaue Trainingsvariante besser funktioniert, und dann mit echten Daten ausprobieren.',
@@ -1006,7 +1044,7 @@ const T = {
         'c3.m2.desc':     'Batch-Gradientenabstieg ist präzise und steckt fest. Stochastischer Gradientenabstieg ist ungenau und funktioniert besser. Rauschen als Designentscheidung, nicht als Fehler.',
         'c3.m3.name':     'Mit echten Daten ausprobieren',
         'c3.m3.desc':     'Den Versicherungsdatensatz herunterladen, das Colab-Notebook öffnen und das erste Regressionsmodell auf echten Zahlen trainieren.',
-
+ 
         'c4.title':       'Lokale Modelle & Geometrie',
         'c4.theme':       'Nicht jede Frage hat eine globale Antwort.',
         'c4.theme.full':  'Nicht jede Frage hat eine globale Antwort. Manchmal hängt die richtige Regel vollständig davon ab, wo man sich befindet — und wer die Nachbarn sind.',
@@ -1018,7 +1056,7 @@ const T = {
         'c4.m3.desc':     'Vom Abstimmen zum Mitteln. Eine Zahl — K — verschiebt entlang einer Kurve zwischen zwei Arten des Falschseins: ein Modell zu starr, um den Daten zu folgen, und eines zu zittrig, um Rauschen zu ignorieren.',
         'c4.m4.name':     'Der Fluch der Dimensionalität',
         'c4.m4.desc':     'Hochdimensionaler Raum verhält sich nicht wie der Raum auf Papier. Drei Rätsel — Kugeln, die in Würfeln verschwinden, Volumen, das zur Oberfläche wandert, zufällige Vektoren, die senkrecht werden — als Beweis, dass die Intuition bricht.',
-
+ 
         'c5.title':       'Regularisierung',
         'c5.theme':       'Wenn das Modell zu gut passt.',
         'c5.theme.full':  'Ein Modell, das die Trainingsdaten auswendig lernt, lernt nicht — es schummelt. Regularisierung ist die Kunst, einem Modell beizubringen, gerade genug zu vergessen, um zu generalisieren.',
@@ -1026,7 +1064,7 @@ const T = {
         'c5.m1.desc':     'Wer eine Videoerklärung zum Tutorial braucht, kann gerne reinschauen — aber bitte nicht weiterleiten.',
         'c5.m2.name':     'Ridge, Lasso und die Kunst des Schrumpfens',
         'c5.m2.desc':     'Ein praktisches Colab-Notebook. Mit einem Modell beginnen, das stark overfittet, dann L2- (Ridge) und L1- (Lasso) Strafen hinzufügen und zusehen, wie die Koeffizienten schrumpfen. Lasso geht weiter — es setzt manche Features ganz auf null, was versteckter Feature-Selektion entspricht. Die Regularisierungsstärke anpassen und den Bias-Varianz-Kompromiss in Aktion beobachten.',
-
+ 
         'c6.title':       'Klassifikation: Grundlagen',
         'c6.theme':       'Wenn die Antwort eine Kategorie ist, keine Zahl.',
         'c6.theme.full':  'Wenn die Antwort eine Kategorie ist, keine Zahl. Die Grundform eines Klassifikators, die Metriken, die ihn bewerten, und die bayesianische Arithmetik dahinter.',
@@ -1049,6 +1087,11 @@ const T = {
         'c7.m3.desc':     'Setz dich selbst in die Passagiertabelle und lass den Baum entscheiden. Ein Colab-Notebook, das einen Baum darauf trainiert, wer lebte und wer starb, seine Splits laut vorliest und damit konfrontiert, was die Merkmale tatsächlich kodieren. Das unbequeme Gespräch ist der Punkt.',
         'c8.title':       'Ensembles',
         'c8.theme':       'Ein Baum overfittet. Tausend Bäume generalisieren.',
+        'c8.theme.full':  'Ein Baum overfittet. Tausend Bäume generalisieren. Warum das Bündeln vieler schwacher Modelle jedes einzelne starke schlägt.',
+        'c8.m1.name':     'Ein Baum lügt',
+        'c8.m1.desc':     'Bagging, Stacking und Boosting, die drei Wege, eine Schar unzuverlässiger Modelle in eines zu verwandeln, dem man trauen kann. Gebaut auf dem Titanic-Baum, mit echter Genauigkeit, die von einem einzelnen überangepassten Baum bis zum gemischten Ensemble klettert, und einem Spielfeld, auf dem jede Strategie eine verrauschte Kurve anpasst.',
+        'c8.m2.name':     'Den Resten hinterher',
+        'c8.m2.desc':     'Gradient Boosting, ein Residuum nach dem anderen. Oben sitzt die Vorhersage, unten der übrig gebliebene Fehler mit dem nächsten Baum, schon daran angepasst. Füge Bäume von Hand hinzu, dreh an der Lernrate und sieh zu, wie der Testfehler ein Minimum erreicht und wieder ins Overfitting steigt.',
         'c9.title':       'Validierung & Modellauswahl',
         'c9.theme':       'Man hat ein Modell gebaut. Jetzt muss man beweisen, dass es funktioniert.',
         'c10.title':      'Empfehlungssysteme & Neuronale Netze',
@@ -1059,9 +1102,9 @@ const T = {
         'c12.theme':      'Was passiert, wenn das Modell auf die echte Welt trifft.',
     }
 };
-
+ 
 let currentLang = 'en';
-
+ 
 function toggleLang() {
     currentLang = currentLang === 'en' ? 'de' : 'en';
     document.documentElement.lang = currentLang;
@@ -1071,7 +1114,7 @@ function toggleLang() {
         if (T[currentLang][key] !== undefined) el.textContent = T[currentLang][key];
     });
 }
-
+ 
 </script>
 </body>
 </html>
