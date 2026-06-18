@@ -313,6 +313,34 @@
             pointer-events: none;
         }
  
+        /* === Exam link (standalone, end of list) === */
+        .exam-link {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            padding: 22px 28px;
+            border: 1px solid #2a2a40;
+            border-radius: 12px;
+            margin-top: 24px;
+            background: #1a1a2a;
+            text-decoration: none;
+            user-select: none;
+            transition: background 0.15s, border-color 0.15s;
+        }
+        .exam-link:hover {
+            background: #1e1e30;
+            border-color: #3a3a58;
+            text-decoration: none;
+        }
+        .exam-link .class-num   { color: #d06060; }
+        .exam-link .class-title { color: #c8c8e0; }
+        .exam-link:hover .class-title { color: #fff; }
+        .exam-link .class-arrow { color: #5a5a80; }
+ 
+        @media (max-width: 600px) {
+            .exam-link { padding: 18px 20px; gap: 12px; }
+        }
+ 
         /* === Footer === */
         footer {
             text-align: center;
@@ -832,13 +860,57 @@
             </div>
         </details>
  
-        <details class="placeholder">
+        <details>
             <summary>
                 <span class="class-num">09</span>
                 <span class="class-title" data-i18n="c9.title">Validation &amp; Model Selection</span>
                 <span class="class-theme" data-i18n="c9.theme">You built a model. Now prove it works.</span>
                 <span class="class-arrow">›</span>
             </summary>
+            <div class="class-body">
+                <div class="class-theme-full" data-i18n="c9.theme.full">You built a model. Now prove it works, on data it hasn't seen, with methods that don't cheat.</div>
+ 
+                <div class="modules">
+ 
+                    <a class="module-card" href="https://i-yam.github.io/testtrain/" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
+                            <span class="tag">~20 min</span>
+                            <span class="tag">no-code</span>
+                            <span class="tag">try-without-ai</span>
+                            <span class="tag">evaluation</span>
+                        </div>
+                        <div class="module-name" data-i18n="c9.m1.name">Memorize the Answers</div>
+                        <div class="module-desc" data-i18n="c9.m1.desc">Every exam question in this course is already published, and learning them cold is the goal. For a model it is the trap. Train on some rows, seal the rest, score on what it never saw. Two sliders show why 80/20 is a habit and not a result, and how many sealed questions a number actually needs before you can trust it.</div>
+                    </a>
+ 
+                    <a class="module-card" href="https://i-yam.github.io/folds/" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
+                            <span class="tag">~20 min</span>
+                            <span class="tag">some-code</span>
+                            <span class="tag">try-without-ai</span>
+                            <span class="tag">evaluation</span>
+                        </div>
+                        <div class="module-name" data-i18n="c9.m2.name">The Knobs and the Folds</div>
+                        <div class="module-desc" data-i18n="c9.m2.desc">Parameters are learned. Hyperparameters you pick yourself, like the churn cutoff you set back in logistic regression. Grid search tries every combination and multiplies fast. Score them all on one validation split and you overfit to it, so you rotate the split instead. K-fold, leave-one-out, stratified, and why GridSearchCV folds the two moves into one.</div>
+                    </a>
+ 
+                    <a class="module-card" href="https://i-yam.github.io/simpson/" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
+                            <span class="tag">~25 min</span>
+                            <span class="tag">no-code</span>
+                            <span class="tag">try-without-ai</span>
+                            <span class="tag">statistics</span>
+                            <span class="tag">evaluation</span>
+                        </div>
+                        <div class="module-name" data-i18n="c9.m3.name">The Average Agrees With No One</div>
+                        <div class="module-desc" data-i18n="c9.m3.desc">The median American wage rose since 2000 while it fell for every education group. Berkeley looked biased against women in aggregate and was not, department by department. A slider flips a discount-versus-value line the moment you colour the two hidden groups. Then the same trap on a churn model that posts 92% overall and 54% where it counts.</div>
+                    </a>
+ 
+                </div>
+            </div>
         </details>
  
         <details class="placeholder">
@@ -867,6 +939,13 @@
                 <span class="class-arrow">›</span>
             </summary>
         </details>
+ 
+        <a class="exam-link" href="https://i-yam.github.io/exam/" target="_blank">
+            <span class="class-num" data-i18n="exam.label">Exam</span>
+            <span class="class-title" data-i18n="exam.title">Practice Exam: The Full Question Pool</span>
+            <span class="class-theme" data-i18n="exam.theme">Every question that can appear, published in advance.</span>
+            <span class="class-arrow">›</span>
+        </a>
  
     </div>
  
@@ -983,12 +1062,22 @@ const T = {
         'c8.m2.desc':     'Gradient boosting, one residual at a time. The prediction sits up top, the leftover error below with the next tree already fit to it. Add trees by hand, turn the learning rate, and watch the test error bottom out and climb back into overfitting.',
         'c9.title':       'Validation & Model Selection',
         'c9.theme':       'You built a model. Now prove it works.',
+        'c9.theme.full':  'You built a model. Now prove it works, on data it hasn\'t seen, with methods that don\'t cheat.',
+        'c9.m1.name':     'Memorize the Answers',
+        'c9.m1.desc':     'Every exam question in this course is already published, and learning them cold is the goal. For a model it is the trap. Train on some rows, seal the rest, score on what it never saw. Two sliders show why 80/20 is a habit and not a result, and how many sealed questions a number actually needs before you can trust it.',
+        'c9.m2.name':     'The Knobs and the Folds',
+        'c9.m2.desc':     'Parameters are learned. Hyperparameters you pick yourself, like the churn cutoff you set back in logistic regression. Grid search tries every combination and multiplies fast. Score them all on one validation split and you overfit to it, so you rotate the split instead. K-fold, leave-one-out, stratified, and why GridSearchCV folds the two moves into one.',
+        'c9.m3.name':     'The Average Agrees With No One',
+        'c9.m3.desc':     'The median American wage rose since 2000 while it fell for every education group. Berkeley looked biased against women in aggregate and was not, department by department. A slider flips a discount-versus-value line the moment you colour the two hidden groups. Then the same trap on a churn model that posts 92% overall and 54% where it counts.',
         'c10.title':      'Recommendations & Neural Networks',
         'c10.theme':      'How machines learn what you want.',
         'c11.title':      'LLMs & Generative AI',
         'c11.theme':      'What changed.',
         'c12.title':      'AI in Practice — Bias, Society, Synthesis',
         'c12.theme':      'What happens when the model meets the real world.',
+        'exam.label':     'Exam',
+        'exam.title':     'Practice Exam: The Full Question Pool',
+        'exam.theme':     'Every question that can appear, published in advance.',
     },
     de: {
         'hero.label':     'KI-Grundlagenkurs',
@@ -1094,12 +1183,22 @@ const T = {
         'c8.m2.desc':     'Gradient Boosting, ein Residuum nach dem anderen. Oben sitzt die Vorhersage, unten der übrig gebliebene Fehler mit dem nächsten Baum, schon daran angepasst. Füge Bäume von Hand hinzu, dreh an der Lernrate und sieh zu, wie der Testfehler ein Minimum erreicht und wieder ins Overfitting steigt.',
         'c9.title':       'Validierung & Modellauswahl',
         'c9.theme':       'Man hat ein Modell gebaut. Jetzt muss man beweisen, dass es funktioniert.',
+        'c9.theme.full':  'Man hat ein Modell gebaut. Jetzt muss man beweisen, dass es funktioniert, auf Daten, die es nie gesehen hat, mit Methoden, die nicht schummeln.',
+        'c9.m1.name':     'Die Antworten auswendig lernen',
+        'c9.m1.desc':     'Jede Prüfungsfrage in diesem Kurs ist bereits veröffentlicht, und sie kalt zu beherrschen ist das Ziel. Für ein Modell ist es die Falle. Auf einem Teil der Zeilen trainieren, den Rest versiegeln, auf dem bewerten, was es nie gesehen hat. Zwei Schieberegler zeigen, warum 80/20 eine Gewohnheit ist und kein Ergebnis, und wie viele versiegelte Fragen eine Zahl wirklich braucht, bevor man ihr trauen kann.',
+        'c9.m2.name':     'Die Stellschrauben und die Folds',
+        'c9.m2.desc':     'Parameter werden gelernt. Hyperparameter wählt man selbst, wie die Churn-Schwelle aus der logistischen Regression. Grid Search probiert jede Kombination und vervielfacht sich schnell. Bewertet man sie alle auf einem einzigen Validierungssplit, overfittet man darauf, also rotiert man den Split stattdessen. K-Fold, Leave-One-Out, stratifiziert, und warum GridSearchCV die beiden Schritte zu einem zusammenfasst.',
+        'c9.m3.name':     'Der Durchschnitt stimmt mit niemandem überein',
+        'c9.m3.desc':     'Der mittlere US-Lohn stieg seit 2000, während er in jeder Bildungsgruppe fiel. Berkeley wirkte im Aggregat voreingenommen gegen Frauen und war es nicht, Fachbereich für Fachbereich. Ein Schieberegler kippt eine Rabatt-gegen-Wert-Linie, sobald man die zwei verborgenen Gruppen einfärbt. Dann dieselbe Falle bei einem Churn-Modell, das 92% insgesamt erreicht und 54% dort, wo es zählt.',
         'c10.title':      'Empfehlungssysteme & Neuronale Netze',
         'c10.theme':      'Wie Maschinen lernen, was man will.',
         'c11.title':      'LLMs & Generative KI',
         'c11.theme':      'Was sich verändert hat.',
         'c12.title':      'KI in der Praxis: Bias, Gesellschaft, Synthese',
         'c12.theme':      'Was passiert, wenn das Modell auf die echte Welt trifft.',
+        'exam.label':     'Klausur',
+        'exam.title':     'Probeklausur: Der vollständige Fragenpool',
+        'exam.theme':     'Jede Frage, die drankommen kann, vorab veröffentlicht.',
     }
 };
  
