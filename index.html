@@ -981,13 +981,57 @@
             </div>
         </details>
  
-        <details class="placeholder">
+        <!-- CLASS 11: LLMS & GENERATIVE AI — FULLY POPULATED -->
+        <details>
             <summary>
                 <span class="class-num">11</span>
                 <span class="class-title" data-i18n="c11.title">LLMs &amp; Generative AI</span>
                 <span class="class-theme" data-i18n="c11.theme">What changed.</span>
                 <span class="class-arrow">›</span>
             </summary>
+            <div class="class-body">
+                <div class="class-theme-full" data-i18n="c11.theme.full">What changed. A model that guesses your next word, a model that scrubs a picture out of static, and the words you type to steer them both. Also what those words will not fix.</div>
+
+                <div class="modules">
+
+                    <a class="module-card" href="https://i-yam.github.io/gaps/" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
+                            <span class="tag">~25 min</span>
+                            <span class="tag">no-code</span>
+                            <span class="tag">try-without-ai</span>
+                            <span class="tag">llm-and-genai</span>
+                        </div>
+                        <div class="module-name" data-i18n="c11.m1.name">Fill in the Gaps</div>
+                        <div class="module-desc" data-i18n="c11.m1.desc">A language model has read everything and understood nothing. Its whole job: look at some words, guess the next one. You do this too, three words into a text message. A real trigram model trained on 1980s Reuters wire finishes your sentence live, one bet at a time, and shows the odds behind every word. Then why a chain with no memory writes fluent nonsense.</div>
+                    </a>
+
+                    <a class="module-card" href="https://i-yam.github.io/apophenic/" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
+                            <span class="tag">~20 min</span>
+                            <span class="tag">no-code</span>
+                            <span class="tag">try-without-ai</span>
+                            <span class="tag">llm-and-genai</span>
+                        </div>
+                        <div class="module-name" data-i18n="c11.m2.name">Apophenic Models</div>
+                        <div class="module-desc" data-i18n="c11.m2.desc">The last model wrote one word at a time. This one starts with a screen of television snow and scrapes the noise away until a picture is left. Apophenia is your brain finding faces in clouds; a diffusion model does the same thing on purpose and does not stop until the picture is sharp. Sliders to run the denoising yourself, pass by pass, and how the writer and the painter turn out to be doing the same job in opposite directions.</div>
+                    </a>
+
+                    <a class="module-card" href="https://i-yam.github.io/prompts/" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
+                            <span class="tag">~25 min</span>
+                            <span class="tag">no-code</span>
+                            <span class="tag">both</span>
+                            <span class="tag">llm-and-genai</span>
+                        </div>
+                        <div class="module-name" data-i18n="c11.m3.name">There Are No Magic Words</div>
+                        <div class="module-desc" data-i18n="c11.m3.desc">A student types: make this better. The essay comes back longer, smoother, rounder, and worse. The model is a very fast intern who has read the entire internet and knows nothing about you. It will do exactly what you say, which is a problem, because you rarely say what you mean. The anatomy of a prompt that works, the failures no prompt will fix, and an exercise in keeping your own head.</div>
+                    </a>
+
+                </div>
+            </div>
         </details>
  
         <details class="placeholder">
@@ -1141,6 +1185,13 @@ const T = {
         'c10.m4.desc':    'A single neuron takes a few numbers, weights them, adds a bias, and squashes the total into a confidence between zero and one. Decide whether to send a churning customer a coupon, one neuron at a time. Stack a row of them into a layer, stack layers into depth, and watch why depth buys you things one neuron cannot. Ends with the perceptron and how it learns its own weights.',
         'c11.title':      'LLMs & Generative AI',
         'c11.theme':      'What changed.',
+        'c11.theme.full': 'What changed. A model that guesses your next word, a model that scrubs a picture out of static, and the words you type to steer them both. Also what those words will not fix.',
+        'c11.m1.name':    'Fill in the Gaps',
+        'c11.m1.desc':    'A language model has read everything and understood nothing. Its whole job: look at some words, guess the next one. You do this too, three words into a text message. A real trigram model trained on 1980s Reuters wire finishes your sentence live, one bet at a time, and shows the odds behind every word. Then why a chain with no memory writes fluent nonsense.',
+        'c11.m2.name':    'Apophenic Models',
+        'c11.m2.desc':    'The last model wrote one word at a time. This one starts with a screen of television snow and scrapes the noise away until a picture is left. Apophenia is your brain finding faces in clouds; a diffusion model does the same thing on purpose and does not stop until the picture is sharp. Sliders to run the denoising yourself, pass by pass, and how the writer and the painter turn out to be doing the same job in opposite directions.',
+        'c11.m3.name':    'There Are No Magic Words',
+        'c11.m3.desc':    'A student types: make this better. The essay comes back longer, smoother, rounder, and worse. The model is a very fast intern who has read the entire internet and knows nothing about you. It will do exactly what you say, which is a problem, because you rarely say what you mean. The anatomy of a prompt that works, the failures no prompt will fix, and an exercise in keeping your own head.',
         'c12.title':      'AI in Practice — Bias, Society, Synthesis',
         'c12.theme':      'What happens when the model meets the real world.',
         'exam.label':     'Exam',
@@ -1271,6 +1322,13 @@ const T = {
         'c10.m4.desc':    'Ein einzelnes Neuron nimmt ein paar Zahlen, gewichtet sie, addiert einen Bias und quetscht die Summe in eine Konfidenz zwischen null und eins. Entscheide, ob ein abwandernder Kunde einen Gutschein bekommt, ein Neuron nach dem anderen. Reih sie zu einer Schicht, stapel die Schichten zu Tiefe und sieh, warum Tiefe Dinge erkauft, die ein einzelnes Neuron nicht kann. Endet mit dem Perzeptron und wie es seine eigenen Gewichte lernt.',
         'c11.title':      'LLMs & Generative KI',
         'c11.theme':      'Was sich verändert hat.',
+        'c11.theme.full': 'Was sich verändert hat. Ein Modell, das dein nächstes Wort errät, ein Modell, das ein Bild aus dem Rauschen kratzt, und die Wörter, mit denen man beide steuert. Und was diese Wörter nicht reparieren.',
+        'c11.m1.name':    'Fill in the Gaps',
+        'c11.m1.desc':    'Ein Sprachmodell hat alles gelesen und nichts verstanden. Sein ganzer Job: ein paar Wörter ansehen, das nächste erraten. Das machst du auch, drei Wörter tief in einer Textnachricht. Ein echtes Trigramm-Modell, trainiert auf Reuters-Meldungen der Achtziger, vervollständigt deinen Satz live, eine Wette nach der anderen, und zeigt die Quoten hinter jedem Wort. Dann, warum eine Kette ohne Gedächtnis flüssigen Unsinn schreibt.',
+        'c11.m2.name':    'Apophenic Models',
+        'c11.m2.desc':    'Das letzte Modell schrieb ein Wort nach dem anderen. Dieses beginnt mit einem Bildschirm voll Fernsehschnee und kratzt das Rauschen weg, bis ein Bild übrig bleibt. Apophänie ist, wenn dein Gehirn Gesichter in Wolken findet; ein Diffusionsmodell macht dasselbe mit Absicht und hört nicht auf, bis das Bild scharf ist. Schieberegler, um das Entrauschen selbst zu fahren, Durchgang für Durchgang, und wie sich zeigt, dass Schreiber und Maler denselben Job in entgegengesetzter Richtung machen.',
+        'c11.m3.name':    'There Are No Magic Words',
+        'c11.m3.desc':    'Ein Student tippt: mach das besser. Der Aufsatz kommt zurück, länger, glatter, runder, und schlechter. Das Modell ist ein sehr schneller Praktikant, der das ganze Internet gelesen hat und nichts über dich weiß. Er tut genau, was du sagst, und das ist ein Problem, weil du selten sagst, was du meinst. Die Anatomie eines Prompts, der funktioniert, die Fehler, die kein Prompt behebt, und eine Übung darin, den eigenen Kopf zu behalten.',
         'c12.title':      'KI in der Praxis: Bias, Gesellschaft, Synthese',
         'c12.theme':      'Was passiert, wenn das Modell auf die echte Welt trifft.',
         'exam.label':     'Klausur',
