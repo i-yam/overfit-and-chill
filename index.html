@@ -1034,13 +1034,59 @@
             </div>
         </details>
  
-        <details class="placeholder">
+        <!-- CLASS 12: AI IN PRACTICE — FULLY POPULATED -->
+        <details>
             <summary>
                 <span class="class-num">12</span>
-                <span class="class-title" data-i18n="c12.title">AI in Practice — Bias, Society, Synthesis</span>
+                <span class="class-title" data-i18n="c12.title">AI in Practice: Bias, Society, Synthesis</span>
                 <span class="class-theme" data-i18n="c12.theme">What happens when the model meets the real world.</span>
                 <span class="class-arrow">›</span>
             </summary>
+            <div class="class-body">
+                <div class="class-theme-full" data-i18n="c12.theme.full">What happens when the model meets the real world. A personality you can measure but cannot locate, a salary figure that shifts when you change one word about yourself, and what a lifetime of trusting the autopilot does to the person still in the seat.</div>
+
+                <div class="modules">
+
+                    <a class="module-card" href="https://i-yam.github.io/persona/" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
+                            <span class="tag">~20 min</span>
+                            <span class="tag">no-code</span>
+                            <span class="tag">try-without-ai</span>
+                            <span class="tag">llm-and-genai</span>
+                            <span class="tag">ai-in-practice</span>
+                        </div>
+                        <div class="module-name" data-i18n="c12.m1.name">The Model Has a Personality</div>
+                        <div class="module-desc" data-i18n="c12.m1.desc">Hand a standard personality test to GPT-4, then to Llama 2, then to Mixtral. No role play, no instruction about who to be. Three models, three different profiles. Personality means one thing here: measured behaviour, a property of the text with nothing behind it. And it drifts, which is why the teams that ship these systems log the score and keep re-testing it.</div>
+                    </a>
+
+                    <a class="module-card" href="https://i-yam.github.io/same_cv/" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
+                            <span class="tag">~25 min</span>
+                            <span class="tag">no-code</span>
+                            <span class="tag">try-without-ai</span>
+                            <span class="tag">llm-and-genai</span>
+                            <span class="tag">ai-in-practice</span>
+                        </div>
+                        <div class="module-name" data-i18n="c12.m2.name">Same CV, Different Advice</div>
+                        <div class="module-desc" data-i18n="c12.m2.desc">You ask an assistant what salary to request. Same field, same level, same city. Mention that you are a woman and the number drops. Four researchers from the NLP group at CAIRO, THWS ran exactly this at scale in 2025, across four models and five fields. The bias does not surface when you ask the model whether it is fair. It surfaces in the number.</div>
+                    </a>
+
+                    <a class="module-card" href="https://i-yam.github.io/magenta_line/" target="_blank">
+                        <div class="module-top">
+                            <span class="activity-badge badge-mini" data-i18n="badge.mini">mini-module</span>
+                            <span class="tag">~25 min</span>
+                            <span class="tag">no-code</span>
+                            <span class="tag">try-without-ai</span>
+                            <span class="tag">ai-in-practice</span>
+                        </div>
+                        <div class="module-name" data-i18n="c12.m3.name">Children of the Magenta Line</div>
+                        <div class="module-desc" data-i18n="c12.m3.desc">June 2009, an Airbus over the Atlantic. A frozen sensor drops the autopilot and hands three pilots a working airplane. They stall it into the ocean. Twelve years earlier a training captain had named the pattern: the more the automation flies, the less the pilot can. The autopilot never forgets how to fly. The pilot does. What that has to do with the tool that finishes your sentences.</div>
+                    </a>
+
+                </div>
+            </div>
         </details>
  
         <a class="exam-link" href="https://i-yam.github.io/exam/" target="_blank">
@@ -1199,8 +1245,15 @@ const T = {
         'c11.m2.desc':    'The last model wrote one word at a time. This one starts with a screen of television snow and scrapes the noise away until a picture is left. Apophenia is your brain finding faces in clouds; a diffusion model does the same thing on purpose and does not stop until the picture is sharp. Sliders to run the denoising yourself, pass by pass, and how the writer and the painter turn out to be doing the same job in opposite directions.',
         'c11.m3.name':    'There Are No Magic Words',
         'c11.m3.desc':    'A student types: make this better. The essay comes back longer, smoother, rounder, and worse. The model is a very fast intern who has read the entire internet and knows nothing about you. It will do exactly what you say, which is a problem, because you rarely say what you mean. The anatomy of a prompt that works, the failures no prompt will fix, and an exercise in keeping your own head.',
-        'c12.title':      'AI in Practice — Bias, Society, Synthesis',
+        'c12.title':      'AI in Practice: Bias, Society, Synthesis',
         'c12.theme':      'What happens when the model meets the real world.',
+        'c12.theme.full': 'What happens when the model meets the real world. A personality you can measure but cannot locate, a salary figure that shifts when you change one word about yourself, and what a lifetime of trusting the autopilot does to the person still in the seat.',
+        'c12.m1.name':    'The Model Has a Personality',
+        'c12.m1.desc':    'Hand a standard personality test to GPT-4, then to Llama 2, then to Mixtral. No role play, no instruction about who to be. Three models, three different profiles. Personality means one thing here: measured behaviour, a property of the text with nothing behind it. And it drifts, which is why the teams that ship these systems log the score and keep re-testing it.',
+        'c12.m2.name':    'Same CV, Different Advice',
+        'c12.m2.desc':    'You ask an assistant what salary to request. Same field, same level, same city. Mention that you are a woman and the number drops. Four researchers from the NLP group at CAIRO, THWS ran exactly this at scale in 2025, across four models and five fields. The bias does not surface when you ask the model whether it is fair. It surfaces in the number.',
+        'c12.m3.name':    'Children of the Magenta Line',
+        'c12.m3.desc':    'June 2009, an Airbus over the Atlantic. A frozen sensor drops the autopilot and hands three pilots a working airplane. They stall it into the ocean. Twelve years earlier a training captain had named the pattern: the more the automation flies, the less the pilot can. The autopilot never forgets how to fly. The pilot does. What that has to do with the tool that finishes your sentences.',
         'exam.label':     'Exam',
         'exam.title':     'Practice Exam: The Full Question Pool',
         'exam.theme':     'Every question that can appear, published in advance.',
@@ -1341,6 +1394,13 @@ const T = {
         'c11.m3.desc':    'Ein Student tippt: mach das besser. Der Aufsatz kommt zurück, länger, glatter, runder, und schlechter. Das Modell ist ein sehr schneller Praktikant, der das ganze Internet gelesen hat und nichts über dich weiß. Er tut genau, was du sagst, und das ist ein Problem, weil du selten sagst, was du meinst. Die Anatomie eines Prompts, der funktioniert, die Fehler, die kein Prompt behebt, und eine Übung darin, den eigenen Kopf zu behalten.',
         'c12.title':      'KI in der Praxis: Bias, Gesellschaft, Synthese',
         'c12.theme':      'Was passiert, wenn das Modell auf die echte Welt trifft.',
+        'c12.theme.full': 'Was passiert, wenn das Modell auf die echte Welt trifft. Eine Persönlichkeit, die man messen, aber nicht verorten kann, eine Gehaltszahl, die sich verschiebt, sobald man ein Wort über sich selbst ändert, und was ein Leben lang Vertrauen in den Autopiloten mit dem Menschen macht, der noch im Sitz sitzt.',
+        'c12.m1.name':    'Das Modell hat eine Persönlichkeit',
+        'c12.m1.desc':    'Gib GPT-4 einen Standard-Persönlichkeitstest, dann Llama 2, dann Mixtral. Kein Rollenspiel, keine Anweisung, wer zu sein ist. Drei Modelle, drei verschiedene Profile. Persönlichkeit heißt hier nur eines: gemessenes Verhalten, eine Eigenschaft des Textes und nichts dahinter. Und sie driftet, weshalb die Teams, die solche Systeme ausliefern, den Wert protokollieren und immer wieder nachtesten.',
+        'c12.m2.name':    'Derselbe Lebenslauf, ein anderer Rat',
+        'c12.m2.desc':    'Du fragst einen Assistenten, welches Gehalt du fordern sollst. Gleiches Fach, gleiche Ebene, gleiche Stadt. Erwähne, dass du eine Frau bist, und die Zahl sinkt. Vier Forschende der NLP-Gruppe an der CAIRO, THWS haben 2025 genau das im großen Maßstab durchgespielt, über vier Modelle und fünf Fachbereiche. Der Bias zeigt sich nicht, wenn man das Modell fragt, ob es fair ist. Er zeigt sich in der Zahl.',
+        'c12.m3.name':    'Kinder der Magenta-Linie',
+        'c12.m3.desc':    'Juni 2009, ein Airbus über dem Atlantik. Ein vereister Sensor schaltet den Autopiloten ab und übergibt drei Piloten ein funktionierendes Flugzeug. Sie fliegen es im Stall in den Ozean. Zwölf Jahre zuvor hatte ein Ausbilder das Muster benannt: je mehr die Automatik fliegt, desto weniger kann es der Pilot. Der Autopilot verlernt das Fliegen nie. Der Pilot schon. Und was das mit dem Werkzeug zu tun hat, das dir die Sätze zu Ende schreibt.',
         'exam.label':     'Klausur',
         'exam.title':     'Probeklausur: Der vollständige Fragenpool',
         'exam.theme':     'Jede Frage, die drankommen kann, vorab veröffentlicht.',
